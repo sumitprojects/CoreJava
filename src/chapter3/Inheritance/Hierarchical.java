@@ -14,5 +14,6 @@ public class Hierarchical {
         Cat c = new Cat();
         c.meow();
         c.eat();
+        //c.bark();
     }
 }

@@ -8,7 +8,7 @@ public class SimpleClass {
         SimpleClass s1 = new SimpleClass();//creating an object of SimpleClass
         System.out.println(s1.id);//accessing member through reference variable
         System.out.println(s1.name);
-
+        System.out.println(s1);
         new SimpleClass();//anonymous object
     }
 }
