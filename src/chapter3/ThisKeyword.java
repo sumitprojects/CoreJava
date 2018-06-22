@@ -41,7 +41,7 @@ public class ThisKeyword {
             System.out.print("-");
         }
         System.out.println();
-        System.out.println("\tId\tBookname\tAuthor\tPrice\t");
+        System.out.println("\tId\tBook Name\tAuthor\tPrice\t");
         System.out.println("\t" + this.id + "\t" + this.bookName + "\t  " + this.author + "\t   " + this.price + "\t");
         System.out.println();
         for (int i = 0; i < 50; i++) {
