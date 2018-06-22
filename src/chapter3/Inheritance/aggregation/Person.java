@@ -1,7 +1,7 @@
 package chapter3.Inheritance.aggregation;
 
-class Address{
-    String city,state,country;
+class Address {
+    String city, state, country;
 
     public Address(String city, String state, String country) {
         this.city = city;
@@ -11,7 +11,7 @@ class Address{
 }
 
 public class Person {
-    String fname,lname,mname;
+    String fname, lname, mname;
     Address address;
 
     public Person(String fname, String lname, String mname, Address address) {

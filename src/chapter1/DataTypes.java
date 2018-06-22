@@ -30,5 +30,7 @@ public class DataTypes {
 
         char letterA = 'A';
         Character letterB = 'B';
+
+        System.out.println(a + b + " " + f1);
     }
 }

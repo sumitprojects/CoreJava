@@ -1,27 +1,30 @@
 package chapter2;
 
 public class MethodTypes {
-    public static void disp(){
-        System.out.println("without paramater without return");
+    public static void disp() {
+        System.out.println("without parameter without return");
     }
-    public static void add(int a,int b){
-        System.out.println("with paramater without return");
-        System.out.println("a + b " + (a+b));
-    }
-    public static int sub(){
-        System.out.println("without paramater with return");
-        return 10-2;
-    }
-    public static int mul(int a,int b){
-        System.out.println("with paramater with return");
-        return a+b;
-    }
-    public static int fact(int n){
 
+    public static void add(int a, int b) {
+        System.out.println("with parameter without return");
+        System.out.println("a + b " + (a + b));
+    }
+
+    public static int sub() {
+        System.out.println("without paremater with return");
+        return 10 - 2;
+    }
+
+    public static int mul(int a, int b) {
+        System.out.println("with parameter with return");
+        return a + b;
+    }
+
+    public static int fact(int n) {
         if (n == 1)
             return 1;
         else
-            return n * fact(n-1);
+            return n * fact(n - 1);
     }
 
     public static void main(String[] args) {
@@ -30,7 +33,7 @@ public class MethodTypes {
         System.out.println("----------------------------------------------------------------");
 
         System.out.println("----------------------------------------------------------------");
-        add(10,20);
+        add(10, 20);
         System.out.println("----------------------------------------------------------------");
 
         System.out.println("----------------------------------------------------------------");
@@ -38,7 +41,7 @@ public class MethodTypes {
         System.out.println("----------------------------------------------------------------");
 
         System.out.println("----------------------------------------------------------------");
-        System.out.println(mul(10,20));
+        System.out.println(mul(10, 20));
         System.out.println("----------------------------------------------------------------");
 
         System.out.println("----------------------------------------------------------------");

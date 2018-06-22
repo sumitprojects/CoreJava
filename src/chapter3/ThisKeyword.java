@@ -20,24 +20,11 @@ public class ThisKeyword {
         this(id, bookName, author);
         this.price = price;
     }
-    public void  display(){
-        for(int i = 0;i<50;i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-        System.out.println("\tId\tBookname\tAuthor\tPrice\t");
-        System.out.println("\t"+this.id+"\t"+this.bookName+"\t  "+this.author+"\t   "+this.price+"\t");
-        System.out.println();
-        for(int i = 0;i<50;i++) {
-            System.out.print("-");
-        }
-        System.out.println();
 
-    }
     public static void main(String[] args) {
         ThisKeyword t1 = new ThisKeyword(1);
-        ThisKeyword t2 = new ThisKeyword(1,"Java","oracle");
-        ThisKeyword t3 = new ThisKeyword(1,"Java","oracle",100);
+        ThisKeyword t2 = new ThisKeyword(1, "Java", "oracle");
+        ThisKeyword t3 = new ThisKeyword(1, "Java", "oracle", 100);
 
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t this as a constructor");
@@ -46,6 +33,21 @@ public class ThisKeyword {
         t3.display();
         System.out.println("----------------------------------------------------------------");
 
+
+    }
+
+    public void display() {
+        for (int i = 0; i < 50; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+        System.out.println("\tId\tBookname\tAuthor\tPrice\t");
+        System.out.println("\t" + this.id + "\t" + this.bookName + "\t  " + this.author + "\t   " + this.price + "\t");
+        System.out.println();
+        for (int i = 0; i < 50; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
 
     }
 }

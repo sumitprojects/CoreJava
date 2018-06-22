@@ -17,6 +17,7 @@ public class LoopStatement1 {
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t NEW FOR LOP ");
         int arr[] = {12, 23, 44, 56, 78};
+        //for each
         for (int i : arr) {
             System.out.println(i);
         }

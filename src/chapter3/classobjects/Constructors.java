@@ -19,9 +19,9 @@ public class Constructors {
         System.out.println("----------------------------------------------------------------");
 
         System.out.println("----------------------------------------------------------------");
-        Constructors c1 = new Constructors(10,"sumit");
+        Constructors c1 = new Constructors(10, "sumit");
         System.out.println("\t\t overrided parameter constructor Constructors c = new Constructors(10,sumit); ");
-        System.out.println("\t\t " +c1.id+"\t"+c1.name);
+        System.out.println("\t\t " + c1.id + "\t" + c1.name);
         System.out.println("----------------------------------------------------------------");
 
     }

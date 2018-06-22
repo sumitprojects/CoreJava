@@ -14,7 +14,7 @@ class Dog extends Animal {
 
 public class Single {
     public static void main(String[] args) {
-        Dog d=new Dog();
+        Dog d = new Dog();
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t single inheritance ");
         System.out.println("----------------------------------------------------------------");
