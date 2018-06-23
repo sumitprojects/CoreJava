@@ -24,7 +24,7 @@ public class ThisKeyword {
     public static void main(String[] args) {
         ThisKeyword t1 = new ThisKeyword(1);
         ThisKeyword t2 = new ThisKeyword(1, "Java", "oracle");
-        ThisKeyword t3 = new ThisKeyword(1, "Java", "oracle", 100);
+        ThisKeyword t3 = new ThisKeyword(2, "Core Java", "oracle", 100);
 
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t this as a constructor");

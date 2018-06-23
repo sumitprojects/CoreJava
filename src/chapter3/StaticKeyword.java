@@ -17,6 +17,5 @@ public class StaticKeyword {
         StaticKeyword c1 = new StaticKeyword();
         StaticKeyword c2 = new StaticKeyword();
         StaticKeyword c3 = new StaticKeyword();
-
     }
 }
