@@ -3,27 +3,33 @@ package chapter4;
 public class StringFun {
     public static void main(String[] args) {
         // Mutable(Unchangeble) and Immutable
-        String ddsff = "aello", s = "this is string", n = s.concat("Edd");
-        char[] cc = s.toCharArray();
+        String data = "hello", string = "this is string.", another = string.concat("this is another string.");
+        char[] cc = string.toCharArray();
 
-        System.out.println("hello " + ddsff.compareTo(s) + " " + s.concat(ddsff) + " " + n.length());
+        System.out.println("String Comparision :" + data.compareTo(string) + "\n" +
+                "Sting Concatination :" + string.concat(data) + "\n" +
+                "Sting Length :" + another.length() + "\n" +
+                "String equality :" + data.equals("hello") + "\n" +
+                "String equality without case :" + data.equalsIgnoreCase("THIS") + "\n" +
+                "String contains :" + string.contains("is") + "\n" +
+                "String Starts with :" + another.startsWith("this") + "\n" +
+                "String Starts with another :" + another.startsWith(" ", 4) + "\n" +
+                "String ends with :" + string.endsWith("ing") + "\n" +
+                "String ends with :" + string.endsWith("string") + "\n" +
+                "String substring :" + string.substring(2) + "\n" +
+                "String Substring :" + string.substring(1, 3));
 
-        // s1 == s2
-        System.out.println(s.equals("aellq") + " " + s.equalsIgnoreCase("aelLq"));
-        System.out.println(s.contains("is"));
-        System.out.println(n.startsWith("this") + " " + n.startsWith(" ", 4));
-        System.out.println(s.endsWith("g") + " " + s.endsWith("string"));
-        System.out.println(s.substring(2) + " " + s.substring(1, 3));//12
-
-        String ch[] = s.split(" ");
+        System.out.print("String Split :");
+        String ch[] = string.split(" ");
         for (String c : ch) {
-            System.out.println(c);
+            System.out.print(c + " ");
         }
 
-        System.out.println(String.join("/", ch));
-
-        System.out.println(s.indexOf("is", 4) + " " + s.charAt(8));
-
-        System.out.println(s.trim() + " " + s.toLowerCase() + " " + s.toUpperCase());
+        System.out.println("\nString Join :" + String.join("/", ch) + "\n" +
+                "String index of :" + string.indexOf("is", 4) + "\n" +
+                "String Char at :" + string.charAt(8) + "\n" +
+                "String trim :" + string.trim() + "\n" +
+                "String Lowercase :" + string.toLowerCase() + "\n" +
+                "String Uppercase :" + string.toUpperCase());
     }
 }
