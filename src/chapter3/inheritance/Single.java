@@ -1,4 +1,4 @@
-package chapter3.Inheritance;
+package chapter3.inheritance;
 
 class Animal {
     void eat() {

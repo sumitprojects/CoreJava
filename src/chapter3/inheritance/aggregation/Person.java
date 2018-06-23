@@ -1,4 +1,4 @@
-package chapter3.Inheritance.aggregation;
+package chapter3.inheritance.aggregation;
 
 class Address {
     String city, state, country;

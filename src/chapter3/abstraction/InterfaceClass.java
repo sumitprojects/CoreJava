@@ -1,4 +1,4 @@
-package chapter3.Abstraction;
+package chapter3.abstraction;
 
 /*
  * Interfaces are fully abstracted class.

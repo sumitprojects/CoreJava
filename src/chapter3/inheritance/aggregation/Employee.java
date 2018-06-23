@@ -1,4 +1,4 @@
-package chapter3.Inheritance.aggregation;
+package chapter3.inheritance.aggregation;
 
 public class Employee {
     Person person;

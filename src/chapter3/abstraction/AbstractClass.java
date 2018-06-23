@@ -1,4 +1,4 @@
-package chapter3.Abstraction;
+package chapter3.abstraction;
 
 /*
  * Abstract class is not fully hidden
