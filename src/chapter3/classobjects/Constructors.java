@@ -15,7 +15,7 @@ public class Constructors {
     public static void main(String[] args) {
         Constructors c = new Constructors();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\t\t default constructor Constructors c = new Constructors();" + c);
+        System.out.println("\t\t default constructor Constructors c = new Constructors()   =>" + c);
         System.out.println("----------------------------------------------------------------");
 
         System.out.println("----------------------------------------------------------------");
