@@ -8,7 +8,7 @@ public class StringBufferFun {
         StringBuffer sb = new StringBuffer("Hello ");
         sb.append("Java");//now original string is changed
         System.out.println("Append : " + sb);//prints Hello Java
-
+        System.out.println("Substring : " + sb.substring(6));
         sb = new StringBuffer("Hello");
         sb.insert(1, "Java");//now original string is changed
         System.out.println("insert : " + sb);//prints HJavaello
