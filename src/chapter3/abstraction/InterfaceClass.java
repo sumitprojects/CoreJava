@@ -7,11 +7,15 @@ package chapter3.abstraction;
  * */
 interface PureAbstract {
     void method1();
-
     long method2(long a, long b);
 }
 
-public class InterfaceClass implements PureAbstract {
+interface PureAbstract2 extends PureAbstract {
+    //void method1();
+    long method2(long a, long b);
+}
+
+public class InterfaceClass implements PureAbstract, PureAbstract2 {
     public static void main(String[] args) {
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t Interface Class Example");
@@ -19,6 +23,10 @@ public class InterfaceClass implements PureAbstract {
 
         PureAbstract p = new InterfaceClass();
         p.method1();
+        System.out.println(p.method2(10, 10));
+
+        PureAbstract2 p2 = new InterfaceClass();
+        p2.method1();
         System.out.println(p.method2(10, 10));
     }
 

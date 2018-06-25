@@ -24,7 +24,6 @@ class AXIS extends Bank{
 }
 
 class ICICI extends Bank{
-
     @Override
     float getRateOfInterest() {
         return 10.7f;

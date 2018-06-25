@@ -9,7 +9,8 @@ class Animals{
         System.out.println("Hello I am animal.");
     }
 }
-class Dog{
+
+class Dog extends Animals {
     void disp(){
         System.out.println("Hello I am Dog");
     }
@@ -17,12 +18,12 @@ class Dog{
 public class Bindings {
     public static void main(String[] args) {
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\t\t Static Bining");
+        System.out.println("\t\t Static Binding");
         Animals a = new Animals();
         a.disp();
         System.out.println("----------------------------------------------------------------");
-        Dog d = new Dog();
-        System.out.println("\t\t Dynamic Bining");
+        Animals d = new Dog();
+        System.out.println("\t\t Dynamic Binding");
         d.disp();
         System.out.println("----------------------------------------------------------------");
 
