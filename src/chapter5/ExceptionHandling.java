@@ -6,6 +6,17 @@ package chapter5;
  * Hierarchy of Java Exception classes:
  *   https://www.javatpoint.com/images/throwable.png
  *
+ * 1) Checked Exception :
+ *    The classes that extend Throwable class except RuntimeException and Error are known as checked exceptions
+ *    e.g.IOException, SQLException etc. Checked exceptions are checked at compile-time.
+ *
+ * 2) Unchecked Exception :
+ *
+ *    The classes that extend RuntimeException are known as unchecked exceptions e.g. ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException etc.
+ *    Unchecked exceptions are not checked at compile-time rather they are checked at runtime.
+ *
+ * 3) Error :
+ *  Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.
  */
 
 import java.util.Scanner;
@@ -86,6 +97,24 @@ class ExceptionCall {
             }
         }
     }
+
+    void MulticatchExample() {
+        try {
+            int a[] = new int[5];
+            a[5] = 30 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("task1 is completed");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("task 2 completed");
+        }
+        /*
+         * Other Exception must be called after the Relevant Exception is called.
+         * */ catch (Exception e) {
+            System.out.println("common task completed");
+        }
+        System.out.println("rest of the code...");
+    }
+
 }
 
 
