@@ -140,6 +140,7 @@ public class ExceptionHandling {
                 System.out.println("-----------------------------------------------------------------------");
                 break;
             default:
+                System.err.println("Invalid Choice");
                 break;
         }
     }
