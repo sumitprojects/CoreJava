@@ -115,6 +115,30 @@ class ExceptionCall {
         System.out.println("rest of the code...");
     }
 
+    void NestedTry() {
+        try {
+            try {
+                System.out.println("ArithmeticException Block");
+                int b = 10 / 0;
+            } catch (ArithmeticException e) {
+                System.out.println(e);
+            }
+            System.out.println("-----------------------------------------------------------------------");
+            try {
+                System.out.println("ArrayIndexOutofBound Block");
+                int a[] = new int[5];
+                a[5] = 4;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println(e);
+            }
+            System.out.println("-----------------------------------------------------------------------");
+            System.out.println("Other Statement in try block");
+        } catch (Exception e) {
+            System.out.println("Exception Handled :" + e);
+        }
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println("Rest of the Code Executed!");
+    }
 }
 
 
@@ -130,7 +154,9 @@ public class ExceptionHandling {
                 "1. Arithmatic Exception\n" +
                 "2. Null Pointer Exception\n" +
                 "3. Number Format Exception\n" +
-                "4. ArrayIndexOutofBound Exception\n");
+                "4. ArrayIndexOutofBound Exception\n" +
+                "5. Multicatch Exception\n" +
+                "6. Nested Try Statement\n");
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
         switch (choice) {
@@ -166,6 +192,20 @@ public class ExceptionHandling {
                 int arr[] = {1, 2, 3, 4, 5, 6};
                 System.out.println("ArrayIndexOutofBound method Call :");
                 ac.setDataArray(arr);
+                System.out.println("-----------------------------------------------------------------------");
+                break;
+            case 5:
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t Multicatch Exception");
+                System.out.println("-----------------------------------------------------------------------");
+                ac.MulticatchExample();
+                System.out.println("-----------------------------------------------------------------------");
+                break;
+            case 6:
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t Nested Try blocks ");
+                System.out.println("-----------------------------------------------------------------------");
+                ac.NestedTry();
                 System.out.println("-----------------------------------------------------------------------");
                 break;
             default:
