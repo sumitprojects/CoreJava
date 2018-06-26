@@ -13,16 +13,18 @@ public class ScanningData {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+
         System.out.println("-------------------------------------------------------------------------");
         System.out.println("\t\t Scanning Data");
         System.out.println("-------------------------------------------------------------------------");
         User u = new User();
-        System.out.println("Enter your Id: ");
+        System.out.println("Enter your Id & Name: ");
         u.setId(sc.nextInt());
-        System.out.println("Enter your Name: ");
-        u.setName(sc.next());
+//        System.out.println("Enter your Name: ");
+        String data = sc.nextLine();
+        u.setName(data);
         System.out.println("-------------------------------------------------------------------------");
-        System.out.println("Hello, your name is " + u.getId() +
+        System.out.println("Hello, your id is " + u.getId() +
                 " and Name is " + u.getName());
         System.out.println("-------------------------------------------------------------------------");
     }

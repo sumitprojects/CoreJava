@@ -8,14 +8,15 @@ public class StringFun {
 
         System.out.println("String Comparision :" + data.compareTo(string) + "\n" +
                 "Sting Concatenation :" + string.concat(data) + "\n" +
+                "String Concatenation :" + another + "\n" +
                 "Sting Length :" + another.length() + "\n" +
                 "String equality :" + data.equals("hello") + "\n" +
                 "String equality without case :" + data.equalsIgnoreCase("HELLO") + "\n" +
                 "String contains :" + string.contains("is") + "\n" +
                 "String Starts with :" + another.startsWith("this") + "\n" +
                 "String Starts with using Index :" + another.startsWith(" ", 4) + "\n" +
-                "String ends with :" + string.endsWith("ing") + "\n" +
-                "String ends with :" + string.endsWith("string") + "\n" +
+                "String ends with :" + string.endsWith("ing.") + "\n" +
+                "String ends with :" + string.endsWith("string.") + "\n" +
                 "String substring :" + string.substring(2) + "\n" +
                 "String Substring :" + string.substring(1, 3));
 

@@ -4,7 +4,6 @@ public class Encapsulation {
     private String data;
 
     public Encapsulation() {
-
     }
 
     //encapsulation with constructor

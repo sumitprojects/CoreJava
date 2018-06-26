@@ -23,6 +23,7 @@ public class Arrays {
         for (String s : data1) {
             System.out.println(s);
         }
+        //System.out.println(a.getData().length);
     }
 
     public String[] getData() {
