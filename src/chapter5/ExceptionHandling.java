@@ -19,6 +19,7 @@ package chapter5;
  *  Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.
  */
 
+import java.io.IOException;
 import java.util.Scanner;
 
 class ExceptionCall {
@@ -139,12 +140,66 @@ class ExceptionCall {
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("Rest of the Code Executed!");
     }
+
+    void FinallyBlock() {
+        try {
+            try {
+                System.out.println("ArithmeticException Block");
+                int b = 10 / 10;
+            } catch (ArithmeticException e) {
+                System.out.println(e);
+            } finally {
+                System.out.println("Without exception");
+            }
+            System.out.println("-----------------------------------------------------------------------");
+            try {
+                System.out.println("ArrayIndexOutofBound Block");
+                int a[] = new int[5];
+                a[5] = 4;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println(e);
+            } finally {
+                System.out.println("With exception");
+            }
+            System.out.println("-----------------------------------------------------------------------");
+            System.out.println("Other Statement in try block");
+        } catch (Exception e) {
+            System.out.println("Exception Handled :" + e);
+        }
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println("Rest of the Code Executed!");
+    }
+
+    void TrowExample() {
+        int age = 17;
+
+        try {
+            if (age >= 18) {
+                System.out.println("Eligible");
+            } else {
+                throw new ArithmeticException("Not Eligible");
+            }
+        } catch (ArithmeticException e) {
+            System.out.println("Exception Message: " + e);
+        }
+    }
+
+    void ExceptionPropagation1() {
+        //without throw it will not call the exception
+        System.out.println("ExceptionPropagation1 call");
+    }
+
+    void ExceptionPropagation2() throws IOException {
+        //Here throw keyword is used. So, it will be executed Forcefully although error is not occurred.
+        throw new IOException("Device Reading Error");
+    }
+
 }
 
 
 public class ExceptionHandling {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ExceptionCall ac = new ExceptionCall();
         int choice = 0;
         System.out.println("-----------------------------------------------------------------------");
@@ -156,7 +211,10 @@ public class ExceptionHandling {
                 "3. Number Format Exception\n" +
                 "4. ArrayIndexOutofBound Exception\n" +
                 "5. Multicatch Exception\n" +
-                "6. Nested Try Statement\n");
+                "6. Nested Try Statement\n" +
+                "7. Finally Block\n" +
+                "8. Throw Block\n" +
+                "9. Exception Propagation\n");
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
         switch (choice) {
@@ -206,6 +264,32 @@ public class ExceptionHandling {
                 System.out.println("\t\t Nested Try blocks ");
                 System.out.println("-----------------------------------------------------------------------");
                 ac.NestedTry();
+                System.out.println("-----------------------------------------------------------------------");
+                break;
+            case 7:
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t Finally blocks ");
+                System.out.println("-----------------------------------------------------------------------");
+                ac.FinallyBlock();
+                System.out.println("-----------------------------------------------------------------------");
+                break;
+            case 8:
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t Throw blocks ");
+                System.out.println("-----------------------------------------------------------------------");
+                ac.TrowExample();
+                System.out.println("-----------------------------------------------------------------------");
+                break;
+            case 9:
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t ExceptionPropagation blocks ");
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t ExceptionPropagation1 blocks ");
+                ac.ExceptionPropagation1();
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t ExceptionPropagation2 blocks ");
+                ac.ExceptionPropagation2();
                 System.out.println("-----------------------------------------------------------------------");
                 break;
             default:
