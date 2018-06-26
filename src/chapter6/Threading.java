@@ -140,26 +140,25 @@ public class Threading extends Thread implements Runnable {
                 System.out.println("------------------------------------------------------------------");
                 ThreadGroup threadGroup = new ThreadGroup("New Thread Group");
                 /*
+                 * Adding The Thread to the created Group
+                 * */
+                Thread one = new Thread(threadGroup, t, "First");
+                Thread two = new Thread(threadGroup, t, "Second");
+                Thread three = new Thread(threadGroup, t, "Third");
+                /*
                  * Thread Name Given Below
                  * */
-
-                t1.setName("FirstThread");
-                t.setName("SecondThread");
-                t3.setName("ThirdThread");
-                t.setDaemon(true);
-
-                /*
-                 * Priority of individual Thread is given Below
-                 * */
-                t1.setPriority(1);  //t1.setPriority(MIN_PRIORITY);
-                t.setPriority(5);   //t.setPriority(NORM_PRIORITY);
-                t3.setPriority(10); //t3.setPriority(MAX_PRIORITY);
-                System.out.println("\t\t " + t1.getName() + " is running");
-                t1.start();
-                System.out.println("\t\t " + t.getName() + " is running");
-                t.start();
-                System.out.println("\t\t " + t3.getName() + " is running");
-                t3.start();
+                one.setName("FirstThread");
+                two.setName("SecondThread");
+                three.setName("ThirdThread");
+                one.setDaemon(true);
+                threadGroup.list();
+                System.out.println("\t\t " + one.getName() + " is running");
+                one.start();
+                System.out.println("\t\t " + two.getName() + " is running");
+                two.start();
+                System.out.println("\t\t " + three.getName() + " is running");
+                three.start();
                 System.out.println("------------------------------------------------------------------");
 
                 break;
@@ -184,8 +183,9 @@ public class Threading extends Thread implements Runnable {
                 /*
                  * For getting current thread information
                  * */
-                System.out.println("Thread Name : " + Thread.currentThread().getName() + "\n" +
-                        "Thread Priority :" + Thread.currentThread().getPriority() + "\n" +
+                System.out.println("Thread Name : " + Thread.currentThread().getName() + "\t |" +
+                        "Thread Priority :" + Thread.currentThread().getPriority() + "\t |" +
+                        "Thread Daemon :" + Thread.currentThread().isDaemon() + "\t |" +
                         "output : i = " + i);
                 System.out.println("------------------------------------------------------------------");
 
