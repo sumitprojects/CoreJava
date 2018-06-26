@@ -20,8 +20,10 @@ public class Constructors {
 
         System.out.println("----------------------------------------------------------------");
         Constructors c1 = new Constructors(10, "sumit");
-        System.out.println("\t\t overrided parameter constructor Constructors c = new Constructors(10,sumit); ");
+        System.out.println("\t\t override parameter constructor Constructors c1 = new Constructors(10,sumit); ");
         System.out.println("\t\t " + c1.id + "\t" + c1.name);
+        c = c1;//copy constructors
+        System.out.println("\t\t " + c.id + "\t" + c.name);
         System.out.println("----------------------------------------------------------------");
 
     }
