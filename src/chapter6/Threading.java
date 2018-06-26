@@ -135,6 +135,33 @@ public class Threading extends Thread implements Runnable {
                 System.out.println("------------------------------------------------------------------");
                 break;
             case 7:
+                System.out.println("------------------------------------------------------------------");
+                System.out.println("\t\t Daemon Thread and Thread Group ");
+                System.out.println("------------------------------------------------------------------");
+                ThreadGroup threadGroup = new ThreadGroup("New Thread Group");
+                /*
+                 * Thread Name Given Below
+                 * */
+
+                t1.setName("FirstThread");
+                t.setName("SecondThread");
+                t3.setName("ThirdThread");
+                t.setDaemon(true);
+
+                /*
+                 * Priority of individual Thread is given Below
+                 * */
+                t1.setPriority(1);  //t1.setPriority(MIN_PRIORITY);
+                t.setPriority(5);   //t.setPriority(NORM_PRIORITY);
+                t3.setPriority(10); //t3.setPriority(MAX_PRIORITY);
+                System.out.println("\t\t " + t1.getName() + " is running");
+                t1.start();
+                System.out.println("\t\t " + t.getName() + " is running");
+                t.start();
+                System.out.println("\t\t " + t3.getName() + " is running");
+                t3.start();
+                System.out.println("------------------------------------------------------------------");
+
                 break;
             default:
                 System.err.println("Wrong Choice");
