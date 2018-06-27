@@ -5,15 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/*
- * FileOutputStream needs two parameters
- * @param file
- * @param data
- * */
 public class FileStreamDemo {
     FileInputStream fin;
     FileOutputStream fout;
 
+    /*
+     * FileOutputStream needs two parameters
+     * @param file
+     * @param data
+     * */
     void fileoutputstream(File file, String Data) throws IOException {
         try {
             fout = new FileOutputStream(file);
