@@ -7,7 +7,7 @@ package chapter3.polymorphism;
  *
  * */
 
-/*final class could be inerited in to any other class*/
+/*final class could be inherited in to any other class*/
 final class Demo {
     void disp() {
         System.out.println("I am final and I can't be overrided / overloaded by another class.");
@@ -16,8 +16,23 @@ final class Demo {
 
 
 class Another{
+
+    /*
+     * Final method without parameter
+     * */
     final void disp(){
         System.out.println("I am unmodifiable.");
+    }
+
+    /*
+     * Final Method with parameter
+     * */
+    final long power(long n, int pow) {
+        if (pow == 1) {
+            return n;
+        } else {
+            return n * power(n, --pow);
+        }
     }
 
 }
@@ -37,6 +52,7 @@ public class FinalKeyword extends Another{
         System.out.println("\t\t Final Method Call  ");
         System.out.println("----------------------------------------------------------------");
         f.disp();
+        System.out.println(f.power(10, 5));
 
         //data =1000;   // compile time error
 

@@ -14,6 +14,11 @@ class Person {
         this.id = id;
         this.name = name;
     }
+
+    public void Display() {
+        System.out.println("\t " + id + " \t\t " + name);
+        System.out.println("----------------------------------------------------------------");
+    }
 }
 
 class Employee extends Person {
@@ -25,7 +30,6 @@ class Employee extends Person {
     }
 
     public void Display() {
-        // super as instance variable super.id;
         System.out.println("\t " + id + " \t\t " + name + " \t\t " + salary);
         System.out.println("----------------------------------------------------------------");
     }
