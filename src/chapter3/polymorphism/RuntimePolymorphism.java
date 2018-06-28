@@ -28,12 +28,15 @@ class ICICI extends Bank{
     float getRateOfInterest() {
         return 10.7f;
     }
+
+    void disp() {
+    }
 }
 
 
 public class RuntimePolymorphism {
     public static void main(String[] args) {
-        Bank b;
+        Bank b;//upcasting
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t Runtime Polymorphism ");
         System.out.println("----------------------------------------------------------------");
