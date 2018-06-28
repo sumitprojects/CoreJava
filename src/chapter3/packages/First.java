@@ -11,7 +11,7 @@ public class First {
     }
 
     /**
-     * This method is procted so it is only used in this package and
+     * This method is protected so it is only used in this package and
      * only in the child class from the outside packages.
      */
     protected void meth() {
