@@ -1,8 +1,13 @@
 package chapter8;
 
-public class User {
+public class User implements Comparable<User> {
     private int id;
     private String name;
+
+    @Override
+    public int compareTo(User user) {
+        return name.compareTo(user.name);
+    }
 
     public User() {
     }
