@@ -1,22 +1,31 @@
 package chapter3.abstraction;
 
 /*
- * Abstract class is not fully hidden
+ * Abstract class is not fully hidden.
  *
  * it will be hidden from 0 to 100%.
  *
  * abstract keyword is used for declaring abstract method and it is forcefully implemented in each child class
  * */
 abstract class Methods {
-    abstract void meth();
+  /*
+   * meth mothod is abstract(no body method)
+   * */
+  abstract void meth();
 
-    long power(long n, int pow) {
-        if (pow == 1) {
-            return n;
-        } else {
-            return n * power(n, --pow);
-        }
+  /*
+   * power method n^pow
+   * @param n number
+   * @param pow power of the number
+   * @return n^pow
+   * */
+  long power(long n, int pow) {
+    if (pow == 1) {
+      return n;
+    } else {
+      return n * power(n, --pow);
     }
+  }
 
 }
 
