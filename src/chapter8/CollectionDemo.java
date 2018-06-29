@@ -23,6 +23,7 @@ public class CollectionDemo {
     public static void main(String[] args) {
         int choice = 0, counter;
         List<User> list;
+        HashSet<User> userset;
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("\t\t\t Collection Demo");
         System.out.println("-----------------------------------------------------------------------");
@@ -47,6 +48,7 @@ public class CollectionDemo {
                     list.add(u);
                 }
                 getAllUser(list);
+                System.out.println("Get(0) in UserList :" + list.get(0).getId());
                 break;
             case 2:
                 System.out.println("-----------------------------------------------------------------------");
@@ -59,6 +61,18 @@ public class CollectionDemo {
                     list.add(u);
                 }
                 getAllUser(list);
+                break;
+            case 3:
+                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("\t\t\t Hashset");
+                System.out.println("-----------------------------------------------------------------------");
+                userset = new HashSet<>();
+                System.out.println("Enter id and name");
+                for (int i = 0; i < counter; i++) {
+                    User u = new User(sc.nextInt(), sc.nextLine());
+                    userset.add(u);
+                }
+                getAllUser(userset);
                 break;
             default:
                 System.err.println("Invalid Choice");
