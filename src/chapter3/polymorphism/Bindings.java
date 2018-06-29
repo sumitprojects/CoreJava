@@ -14,6 +14,10 @@ class Dog extends Animals {
     void disp(){
         System.out.println("Hello I am Dog");
     }
+
+  void Bark() {
+    System.out.println("Barking");
+  }
 }
 public class Bindings {
     public static void main(String[] args) {
@@ -25,6 +29,7 @@ public class Bindings {
         Animals d = new Dog();
         System.out.println("\t\t Dynamic Binding");
         d.disp();
+      //d.bark();
         System.out.println("----------------------------------------------------------------");
 
     }
