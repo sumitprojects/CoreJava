@@ -12,7 +12,6 @@ public class MethodOverloading {
         System.out.println("Int Data 2 para");
         return a + b;
     }
-
     static int add(int a, int b, int c) {
         System.out.println("Int Data 3 para");
         return a + b + c;
@@ -37,7 +36,7 @@ public class MethodOverloading {
         System.out.println(MethodOverloading.add(11, 11));
         System.out.println(MethodOverloading.add(11, 11, 11));
         System.out.println(MethodOverloading.add(12.3, 12.6));
-        System.out.println(MethodOverloading.add(11l, 11));
+        System.out.println(MethodOverloading.add(11L, 11));
         for (int i = 0; i < 50; i++) {
             System.out.print("-");
         }

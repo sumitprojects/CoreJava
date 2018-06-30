@@ -8,6 +8,11 @@ import java.util.*;
 public class CollectionDemo {
   static Scanner sc = new Scanner(System.in);
   
+  /**
+   * Method print all the List of the user from the Collections(List or Set).
+   *
+   * @param user excepts Collection such as List and Sets
+   */
   static void getAllUser(Collection user) {
     System.out.println("--------------------------------------------------------");
     System.out.println("\t\t ID \t\t\t| \t\t Name");
@@ -24,6 +29,7 @@ public class CollectionDemo {
     int choice = 0, counter;
     List<User> list;
     Set<User> userset;
+    
     System.out.println("-----------------------------------------------------------------------");
     System.out.println("\t\t\t Collection Demo");
     System.out.println("-----------------------------------------------------------------------");
@@ -61,6 +67,7 @@ public class CollectionDemo {
         for (int i = 0; i < counter; i++) {
           User u = new User(sc.nextInt(), sc.nextLine());
           list.add(u);
+          //list.add(u);
         }
         getAllUser(list);
         break;
@@ -73,6 +80,7 @@ public class CollectionDemo {
         for (int i = 0; i < counter; i++) {
           User u = new User(sc.nextInt(), sc.nextLine());
           userset.add(u);
+          //userset.add(u);
         }
         getAllUser(userset);
         break;
