@@ -8,12 +8,12 @@ import java.io.IOException;
 public class FileStreamDemo {
     FileInputStream fin;
     FileOutputStream fout;
-
-    /*
-     * FileOutputStream needs two parameters
-     * @param file
-     * @param data
-     * */
+  
+  /**
+   * @param file takes file as an arguments
+   * @param Data takes data to write in the file
+   * @throws IOException
+   */
     void fileoutputstream(File file, String Data) throws IOException {
         try {
             fout = new FileOutputStream(file);
@@ -26,13 +26,14 @@ public class FileStreamDemo {
             throw new IOException("File Write Error");
         }
     }
-
-    /*
-     * FileOutputStream needs one parameter as file and return data as StringBuffer
-     * @param file
-     * @param data
-     * */
-    StringBuffer fileinputstream(File file) throws IOException {
+  
+  /**
+   * FileOutputStream needs one parameter as file and return data as StringBuffer
+     * @param file takes file as an arguments
+   * @return string buffer
+   * @throws IOException
+   */
+  StringBuffer fileinputstream(File file) throws IOException {
         StringBuffer s = new StringBuffer();
         try {
             fin = new FileInputStream(file);
