@@ -7,7 +7,7 @@ import java.util.*;
  * */
 public class CollectionDemo {
   static Scanner sc = new Scanner(System.in);
-
+  
   static void getAllUser(Collection user) {
     System.out.println("--------------------------------------------------------");
     System.out.println("\t\t ID \t\t\t| \t\t Name");
@@ -19,7 +19,7 @@ public class CollectionDemo {
       System.out.println("--------------------------------------------------------");
     }
   }
-
+  
   public static void main(String[] args) {
     int choice = 0, counter;
     List<User> list;
@@ -37,7 +37,7 @@ public class CollectionDemo {
     choice = sc.nextInt();
     System.out.println("How many User you want to add?");
     counter = sc.nextInt();
-
+    
     switch (choice) {
       case 1:
         System.out.println("-----------------------------------------------------------------------");
