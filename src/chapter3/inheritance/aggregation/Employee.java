@@ -12,8 +12,8 @@ public class Employee {
     public static void main(String[] args) {
         Address a1 = new Address("ST", "GUJ", "IND");
         Address a2 = new Address("NVS", "GUJ", "IND");
-        Person p1 = new Person("sam", "smart", "star", a1);
-        Person p2 = new Person("smart", "star", "sam", a2);
+        Person p1 = new Person("Tirth", "Lakhani", "R", a1);
+        Person p2 = new Person("Om", "Sonani", "K", a2);
         Employee e1 = new Employee(p1, 20000f);
         Employee e2 = new Employee(p2, 30000f);
 
