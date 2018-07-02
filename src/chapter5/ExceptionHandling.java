@@ -28,13 +28,13 @@ class ExceptionCall {
      */
     int data = 0;
     Integer arraydata[] = new Integer[5];
-
+    
     /*
      * ArithmeticException code
      *
      * Divide by 0 is called as ArithmeticException Exception
      * */
-    int div(int a, int b) {
+    int div (int a, int b) {
         int c = 0;
         try {
             //c = (b!=0)?(a/b):0; bypassing the exception
@@ -49,11 +49,11 @@ class ExceptionCall {
          * */
         return c;
     }
-
+    
     /*
      * Number format Exception Method
      */
-    String NullExp() {
+    String NullExp () {
         String s = null;
         try {
             /*
@@ -66,8 +66,8 @@ class ExceptionCall {
         }
         return s;
     }
-
-    int setNum(String data) {
+    
+    int setNum (String data) {
         /*
          * below code will generate the number format exception,
          * if string is given in the method call
@@ -83,8 +83,8 @@ class ExceptionCall {
          * */
         return this.data;
     }
-
-    void setDataArray(int... arraydata) {
+    
+    void setDataArray (int... arraydata) {
         for (int i = 0; i < arraydata.length; i++) {
             /*
              *Below code will generate the ArrayIndexOut of bound exception,
@@ -98,8 +98,8 @@ class ExceptionCall {
             }
         }
     }
-
-    void MulticatchExample() {
+    
+    void MulticatchExample () {
         try {
             int a[] = new int[5];
             a[5] = 30 / 0;
@@ -115,8 +115,8 @@ class ExceptionCall {
         }
         System.out.println("rest of the code...");
     }
-
-    void NestedTry() {
+    
+    void NestedTry () {
         try {
             try {
                 System.out.println("ArithmeticException Block");
@@ -140,8 +140,8 @@ class ExceptionCall {
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("Rest of the Code Executed!");
     }
-
-    void FinallyBlock() {
+    
+    void FinallyBlock () {
         try {
             try {
                 System.out.println("ArithmeticException Block");
@@ -169,10 +169,10 @@ class ExceptionCall {
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("Rest of the Code Executed!");
     }
-
-    void TrowExample() {
+    
+    void TrowExample () {
         int age = 17;
-
+        
         try {
             if (age >= 18) {
                 System.out.println("Eligible");
@@ -183,23 +183,23 @@ class ExceptionCall {
             System.out.println("Exception Message: " + e);
         }
     }
-
-    void ExceptionPropagation1() {
+    
+    void ExceptionPropagation1 () {
         //without throw it will not call the exception
         System.out.println("ExceptionPropagation1 call");
     }
-
-    void ExceptionPropagation2() throws IOException {
+    
+    void ExceptionPropagation2 () throws IOException {
         //Here throw keyword is used. So, it will be executed Forcefully although error is not occurred.
         throw new IOException("Device Reading Error");
     }
-
+    
 }
 
 
 public class ExceptionHandling {
-
-    public static void main(String[] args) throws IOException {
+    
+    public static void main (String[] args) throws IOException {
         ExceptionCall ac = new ExceptionCall();
         int choice = 0;
         System.out.println("-----------------------------------------------------------------------");

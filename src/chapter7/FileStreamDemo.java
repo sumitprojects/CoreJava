@@ -1,20 +1,20 @@
 package chapter7;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
+/**
+ * FileStream Demo class
+ */
 public class FileStreamDemo {
     FileInputStream fin;
     FileOutputStream fout;
-  
-  /**
-   * @param file takes file as an arguments
-   * @param Data takes data to write in the file
-   * @throws IOException
-   */
-    void fileoutputstream(File file, String Data) throws IOException {
+    
+    /**
+     * @param file takes file as an arguments
+     * @param Data takes data to write in the file
+     * @throws IOException
+     */
+    void fileoutputstream (File file, String Data) throws IOException {
         try {
             fout = new FileOutputStream(file);
             String s = Data;
@@ -26,14 +26,15 @@ public class FileStreamDemo {
             throw new IOException("File Write Error");
         }
     }
-  
-  /**
-   * FileOutputStream needs one parameter as file and return data as StringBuffer
+    
+    /**
+     * FileOutputStream needs one parameter as file and return data as StringBuffer
+     *
      * @param file takes file as an arguments
-   * @return string buffer
-   * @throws IOException
-   */
-  StringBuffer fileinputstream(File file) throws IOException {
+     * @return string buffer
+     * @throws IOException
+     */
+    StringBuffer fileinputstream (File file) throws IOException {
         StringBuffer s = new StringBuffer();
         try {
             fin = new FileInputStream(file);
@@ -49,7 +50,9 @@ public class FileStreamDemo {
             }
             fin.close();
             System.out.println("success...");
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
+            System.err.println("Given file " + file + " not Found!");
+        } catch (IOException e) {
             throw new IOException("File Read Error");
         }
         return s;

@@ -10,10 +10,10 @@ package chapter5;
 import java.util.Scanner;
 
 public class ScanningData {
-    public static void main(String[] args) {
-
+    public static void main (String[] args) {
+        
         Scanner sc = new Scanner(System.in);
-
+        
         System.out.println("-------------------------------------------------------------------------");
         System.out.println("\t\t Scanning Data");
         System.out.println("-------------------------------------------------------------------------");

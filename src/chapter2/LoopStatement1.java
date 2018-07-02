@@ -6,14 +6,14 @@ package chapter2;
  * do-while loop
  * */
 public class LoopStatement1 {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t FOR LOP ");
         for (int i = 1; i <= 10; i++) {
             System.out.println(i);
         }
         System.out.println("----------------------------------------------------------------");
-
+        
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t NEW FOR LOP ");
         int arr[] = {12, 23, 44, 56, 78};
@@ -22,7 +22,7 @@ public class LoopStatement1 {
             System.out.println(i);
         }
         System.out.println("----------------------------------------------------------------");
-
+        
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t Labeled For Loop break");
         aa:
@@ -36,7 +36,7 @@ public class LoopStatement1 {
             }
         }
         System.out.println("----------------------------------------------------------------");
-
+        
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t Labeled For Loop continue");
         aa:
@@ -50,6 +50,6 @@ public class LoopStatement1 {
             }
         }
         System.out.println("----------------------------------------------------------------");
-
+        
     }
 }

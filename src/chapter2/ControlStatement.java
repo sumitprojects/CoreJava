@@ -33,7 +33,7 @@ default:
 
 * */
 public class ControlStatement {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         int marks = 65;
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t IfElseIfExample  ");
@@ -53,7 +53,7 @@ public class ControlStatement {
             System.out.println("Invalid!");
         }
         System.out.println("----------------------------------------------------------------");
-
+        
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t Switch Statement  ");
         int number = 20;
