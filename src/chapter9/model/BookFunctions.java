@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BookFunctions implements CrudInterface<Book> {
-    private final String url = "";
+    private final String url = "jdbc:mysql://localhost:3306/bookstore";
     private final String user = "root";
     private final String password = "mysql";
     private Connection connection;
@@ -18,9 +18,12 @@ public class BookFunctions implements CrudInterface<Book> {
      */
     private void connect () {
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println("Message: " + e);
+        } catch (ClassNotFoundException e) {
+            System.err.println("Message: " + e);
         }
     }
     
@@ -33,10 +36,15 @@ public class BookFunctions implements CrudInterface<Book> {
                 connection.close();
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println("Message: " + e);
         }
     }
     
+    
+    /**
+     * @param book Java Model Bean will be used an a param
+     * @return true or false
+     */
     @Override
     public boolean insertData (Book book) {
         String sql = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
@@ -48,22 +56,33 @@ public class BookFunctions implements CrudInterface<Book> {
             statement.setFloat(3, book.getPrice());
             rowInserted = statement.executeUpdate() > 0;
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("Message: " + e);
         }
         disconnect();
         return rowInserted;
     }
     
+    /**
+     * @return true or false
+     */
     @Override
     public ArrayList<Book> selectData () {
         return null;
     }
     
+    /**
+     * @param book Java Model Bean will be used an a param
+     * @return true or false
+     */
     @Override
     public boolean deleteData (Book book) {
         return false;
     }
     
+    /**
+     * @param book Java Model Bean will be used an a param
+     * @return
+     */
     @Override
     public boolean updateData (Book book) {
         return false;
