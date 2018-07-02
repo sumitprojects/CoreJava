@@ -22,7 +22,7 @@ public interface CrudInterface<T> {
     
     /**
      * @param t Java Model Bean will be used an a param
-     * @return
+     * @return true or false
      */
     boolean updateData (T t);
 }

@@ -81,7 +81,7 @@ public class BookFunctions implements CrudInterface<Book> {
     
     /**
      * @param book Java Model Bean will be used an a param
-     * @return
+     * @return true or false
      */
     @Override
     public boolean updateData (Book book) {
