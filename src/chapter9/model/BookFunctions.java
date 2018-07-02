@@ -58,4 +58,14 @@ public class BookFunctions implements CrudInterface<Book> {
     public ArrayList<Book> selectData () {
         return null;
     }
+    
+    @Override
+    public boolean deleteData (Book book) {
+        return false;
+    }
+    
+    @Override
+    public boolean updateData (Book book) {
+        return false;
+    }
 }

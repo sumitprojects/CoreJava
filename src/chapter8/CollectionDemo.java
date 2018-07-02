@@ -20,7 +20,8 @@ public class CollectionDemo {
         while (itr.hasNext()) {
             User user1 = (User) itr.next();
             System.out.println("--------------------------------------------------------");
-            System.out.println("|\t\t " + user1.getId() + "\t\t\t\t| \t\t\t" + user1.getName() + "\t\t\t|");
+            System.out.println(user1.toString());
+            //System.out.println("|\t\t " + user1.getId() + "\t\t\t\t| \t\t\t" + user1.getName() + "\t\t\t|");
             System.out.println("--------------------------------------------------------");
         }
     }

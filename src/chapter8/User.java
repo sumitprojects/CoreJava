@@ -10,7 +10,7 @@ public class User implements Comparable<User> {
     /**
      * Default Constructors
      */
-    public User() {
+    public User () {
     }
     
     /**
@@ -19,7 +19,7 @@ public class User implements Comparable<User> {
      * @param id   takes id of the user
      * @param name takes name of the user
      */
-    public User(int id, String name) {
+    public User (int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -35,19 +35,30 @@ public class User implements Comparable<User> {
         return name.compareTo(user.name);
     }
     
-    public int getId() {
+    /**
+     * @return Information about a Current User object holding.
+     */
+    @Override
+    public String toString () {
+        return "|\t\t\t" +
+                id +
+                "\t\t\t|\t\t\t " + name +
+                "\t\t\t|";
+    }
+    
+    public int getId () {
         return id;
     }
     
-    public void setId(int id) {
+    public void setId (int id) {
         this.id = id;
     }
     
-    public String getName() {
+    public String getName () {
         return name;
     }
     
-    public void setName(String name) {
+    public void setName (String name) {
         this.name = name;
     }
 }
