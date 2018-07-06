@@ -8,14 +8,18 @@ package chapter3.polymorphism;
 class Parent {
     final int data;
 
+    public Parent() {
+        //data = 10; //
+        System.out.println("Hello I am Parent");
+    }
+    
     {
         data = 100;
         System.out.println("Hello I am Block of parent");
     }
-
-    public Parent() {
-        //data = 10; //
-        System.out.println("Hello I am Parent");
+    
+    {
+        System.out.println("Hello I am Block of parent2");
     }
 }
 
