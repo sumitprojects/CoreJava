@@ -1,12 +1,15 @@
 package chapter7;
 
 
+import chapter8.User;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class FileHandling {
     private static final String string_data = "Hello World Java";
+    private static final User u = new User(2, "sumit");
     private final static File file = new File("E:\\CoreJava\\src\\chapter7\\txt\\Data.txt");
     private final static FileStreamDemo filedemo = new FileStreamDemo();
     static Scanner sc = new Scanner(System.in);
@@ -25,7 +28,7 @@ public class FileHandling {
                 System.out.println("-------------------------------------------------------------------");
                 System.out.println("\t\t File Writing Started");
                 System.out.println("-------------------------------------------------------------------");
-                filedemo.fileoutputstream(file, string_data);
+                filedemo.fileoutputstream(file, u.toString());
                 break;
             case 2:
                 System.out.println("-------------------------------------------------------------------");
