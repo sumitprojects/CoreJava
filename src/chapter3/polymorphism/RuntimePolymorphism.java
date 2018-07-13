@@ -37,6 +37,7 @@ class ICICI extends Bank{
 public class RuntimePolymorphism {
     public static void main(String[] args) {
         Bank b;//upcasting
+    
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t Runtime Polymorphism ");
         System.out.println("----------------------------------------------------------------");
@@ -45,6 +46,7 @@ public class RuntimePolymorphism {
         b = new AXIS();
         System.out.println("AXIX Rate of Interest = \t" + b.getRateOfInterest());
         b = new ICICI();
+        //b.disp();
         System.out.println("ICICI Rate of Interest =\t" + b.getRateOfInterest());
         System.out.println("----------------------------------------------------------------");
     }
