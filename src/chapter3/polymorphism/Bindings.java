@@ -19,6 +19,7 @@ class Dog extends Animals {
     System.out.println("Barking");
   }
 }
+
 public class Bindings {
     public static void main(String[] args) {
         System.out.println("----------------------------------------------------------------");
