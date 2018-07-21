@@ -5,9 +5,9 @@ public class PalindromeChecker {
 //        String arr2[] = arr.split(" ");
 //        for(int i = arr2.length-1 ; i>=0;i--){
 //            System.out.print(arr2[i] +" ");
-//        }
+//       }
         int r, sum = 0, temp;
-        int n = 166;//It is the number variable to be checked for palindrome
+        int n = 12131;//It is the number variable to be checked for palindrome
         
         temp = n;
         while (n > 0) {
@@ -20,7 +20,6 @@ public class PalindromeChecker {
         } else {
             System.out.println(temp + " not palindrome");
             palindromechecker(temp);
-            //palindromechecker2(temp);
         }
     }
     
@@ -35,7 +34,7 @@ public class PalindromeChecker {
                 i = i / 10;
             }
             if (temp == sum) {
-                System.out.println("palindrome number " + temp);
+                System.out.println("palindrome number before " + temp);
                 break;
             }
             sum = 0;
@@ -51,8 +50,10 @@ public class PalindromeChecker {
                 sum = (sum * 10) + r;
                 i = i / 10;
             }
-            if (temp == sum) {
-                System.out.println("palindrome number " + temp);
+            if (temp < 0) {
+                break;
+            } else if (temp == sum) {
+                System.out.println("palindrome number after " + temp);
                 break;
             }
             sum = 0;

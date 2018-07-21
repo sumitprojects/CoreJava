@@ -20,7 +20,7 @@ public class ScanningData {
         User u = new User();
         System.out.println("Enter your Id & Name: ");
         u.setId(sc.nextInt());
-//        System.out.println("Enter your Name: ");
+//      System.out.println("Enter your Name: ");
         String data = sc.nextLine();
         u.setName(data);
         System.out.println("-------------------------------------------------------------------------");
