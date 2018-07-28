@@ -102,11 +102,11 @@ class ExceptionCall {
     void MulticatchExample () {
         try {
             int a[] = new int[5];
-            a[5] = 30 / 0;
+            a[4] = 30 / 10;
         } catch (ArithmeticException e) {
-            System.out.println("task1 is completed");
+            System.out.println("ArithmeticException is completed");
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("task 2 completed");
+            System.out.println("ArrayIndexOutOfBoundsException completed");
         }
         /*
          * Other Exception must be called after the Relevant Exception is called.
@@ -118,6 +118,12 @@ class ExceptionCall {
     
     void NestedTry () {
         try {
+            try {
+                String n = null;
+                System.out.println(n.length());
+            } catch (NullPointerException e) {
+                System.out.println(e);
+            }
             try {
                 System.out.println("ArithmeticException Block");
                 int b = 10 / 0;
@@ -145,7 +151,7 @@ class ExceptionCall {
         try {
             try {
                 System.out.println("ArithmeticException Block");
-                int b = 10 / 10;
+                int b = 10 / 0;
             } catch (ArithmeticException e) {
                 System.out.println(e);
             } finally {
@@ -165,6 +171,8 @@ class ExceptionCall {
             System.out.println("Other Statement in try block");
         } catch (Exception e) {
             System.out.println("Exception Handled :" + e);
+        } finally {
+            System.out.println("I am outer done.");
         }
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("Rest of the Code Executed!");
