@@ -102,7 +102,7 @@ class ExceptionCall {
     void MulticatchExample () {
         try {
             int a[] = new int[5];
-            a[4] = 30 / 10;
+            a[5] = 30 / 10;
         } catch (ArithmeticException e) {
             System.out.println("ArithmeticException is completed");
         } catch (ArrayIndexOutOfBoundsException e) {
