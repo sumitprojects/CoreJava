@@ -24,9 +24,9 @@ public class Person {
     
     /**
      * @param fname   takes the Firstname
-     * @param lname
-     * @param mname
-     * @param address
+     * @param lname   takes the Lastname
+     * @param mname   takes the MiddleName
+     * @param address takes the Address
      */
     public Person (String fname, String lname, String mname, Address address) {
         this.fname = fname;
