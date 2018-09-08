@@ -19,7 +19,7 @@ public class NewPalindrome {
         return on;
     }
     
-    static String palindromeGenerator (String data) {
+    static String palindromeMaxGenerator (String data) {
         char array[] = data.toLowerCase().toCharArray();
         int start = 0, end = data.length(), mid = (end / 2);
         --end;
@@ -40,15 +40,37 @@ public class NewPalindrome {
         return String.valueOf(array);
     }
     
+    static String palindromeMinGenerator (String data) {
+        char array[] = data.toLowerCase().toCharArray();
+        int start = 0, end = data.length(), mid = (end / 2);
+        --end;
+        boolean on = false;
+        while (mid > 0) {
+            if (array[start] == array[end]) {
+                on = true;
+            } else {
+                int min = Integer.max(array[start], array[end]);
+                array[start] = (char) min;
+                array[end] = (char) min;
+                on = true;
+            }
+            ++start;
+            --end;
+            --mid;
+        }
+        return String.valueOf(array);
+    }
+    
     public static void main (String[] args) {
         boolean on = false;
-        String number = "mon";
+        String number = "123456789";
         
         if (palindromeChecker(number)) {
-            System.out.println("Data is palindrome");
+            System.out.println(number + " is palindrome");
         } else {
-            System.out.println("Data is not palindrome");
-            System.out.println("Nearest Palindrome Data : " + palindromeGenerator(number));
+            System.out.println(number + " is not palindrome");
+            System.out.println("Nearest Palindrome : " + palindromeMaxGenerator(number));
+            System.out.println("Farest Palindrome : " + palindromeMinGenerator(number));
         }
         
     }
