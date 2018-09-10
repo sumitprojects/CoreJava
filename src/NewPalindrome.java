@@ -63,7 +63,7 @@ public class NewPalindrome {
     
     public static void main (String[] args) {
         boolean on = false;
-        String number = "123454329";
+        String number = "mole";
         
         if (palindromeChecker(number)) {
             System.out.println(number + " is palindrome");

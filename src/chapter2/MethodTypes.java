@@ -11,7 +11,7 @@ public class MethodTypes {
     }
     
     public static int sub () {
-        System.out.println("without paremater with return");
+        System.out.println("without paremeter with return");
         return 10 - 2;
     }
     

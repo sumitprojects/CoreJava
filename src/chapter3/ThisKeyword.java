@@ -5,38 +5,37 @@ public class ThisKeyword {
     String bookName;
     String author;
     float price;
-
-    public ThisKeyword(int id) {
+    
+    public ThisKeyword (int id) {
         this.id = id;
     }
-
-    public ThisKeyword(int id, String bookName, String author) {
+    
+    public ThisKeyword (int id, String bookName, String author) {
         this(id);
         this.bookName = bookName;
         this.author = author;
     }
-
-    public ThisKeyword(int id, String bookName, String author, float price) {
+    
+    public ThisKeyword (int id, String bookName, String author, float price) {
         this(id, bookName, author);
         this.price = price;
     }
-
-    public static void main(String[] args) {
+    
+    public static void main (String[] args) {
         ThisKeyword t1 = new ThisKeyword(1);
         ThisKeyword t2 = new ThisKeyword(1, "Java", "oracle");
         ThisKeyword t3 = new ThisKeyword(2, "Core Java", "oracle", 100);
-
+        
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t this as a constructor");
         t1.display();
         t2.display();
         t3.display();
         System.out.println("----------------------------------------------------------------");
-
-
+        
     }
-
-    public void display() {
+    
+    public void display () {
         for (int i = 0; i < 50; i++) {
             System.out.print("-");
         }
@@ -48,6 +47,6 @@ public class ThisKeyword {
             System.out.print("-");
         }
         System.out.println();
-
+        
     }
 }
