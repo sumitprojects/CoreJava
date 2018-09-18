@@ -1,0 +1,44 @@
+package Java8.deadlock;
+
+public class ThreadComm {
+  public static void main (String args[]) {
+    final Customer c = new Customer();
+    new Thread(() -> c.withdraw(15000)).start();
+    new Thread(() -> c.withdraw(15000)).start();
+    new Thread(() -> c.withdraw(15000)).start();
+    new Thread(() -> c.withdraw(15000)).start();
+    new Thread(() -> c.deposit(30000)).start();
+  }
+}
+
+class Customer {
+  int amount = 10000;
+  
+  synchronized void withdraw (int amount) {
+    System.out.println("going to withdraw...");
+    
+    if (this.amount < amount) {
+      System.out.println("Less balance; waiting for deposit...");
+      try {
+        wait(3000);
+        if (this.amount > amount) {
+          this.amount -= amount;
+          System.out.println("withdraw completed...");
+        }else{
+          throw new ArithmeticException("Insufficient Amount");
+        }
+      } catch (Exception e) {
+        System.err.println(e.getMessage());
+      }
+      
+  
+    }
+  }
+  
+  synchronized void deposit (int amount) {
+    System.out.println("going to deposit...");
+    this.amount += amount;
+    System.out.println("deposit completed... ");
+    notify();
+  }
+}
