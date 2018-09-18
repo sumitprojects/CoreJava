@@ -7,25 +7,32 @@ package chapter3.polymorphism;
  * */
 class Parent {
     final int data;
-
+  
+  static {
+    System.out.println("Hello I am Static Block parent");
+  }
+  
+  {
+    data = 100;
+    System.out.println("Hello I am Block of parent");
+  }
+    
     public Parent() {
-        //data = 10; //
+      //data = 10;
         System.out.println("Hello I am Parent");
-    }
-    
-    {
-        data = 100;
-        System.out.println("Hello I am Block of parent");
-    }
-    
-    {
-        System.out.println("Hello I am Block of parent2");
     }
 }
 
 class Child extends Parent {
+  static {
+    System.out.println("Hello I am static Block of Child");
+  }
+  
+  int data;
+
     {
-        System.out.println("Hello I am Block of Child");
+      data = 200;
+      System.out.println("Hello I am Block of Child " + super.data);
     }
 
     public Child() {
@@ -35,6 +42,8 @@ class Child extends Parent {
 
 public class StaticBlock {
     public static void main(String[] args) {
-        Child c = new Child();
+      System.out.println("Main");
+      Child c = new Child();
+      System.out.println(c.data);
     }
 }

@@ -13,10 +13,10 @@ double	        0.0d	    8 byte
 
 public class DataTypes {
     public static void main(String[] args) {
-        Boolean one = false;
+      Boolean one = true;
         boolean second = true;
-
-        int a = 100000;
+  
+      int a = 100000;
         Integer b = -200000;
 
         long a1 = 100000L;

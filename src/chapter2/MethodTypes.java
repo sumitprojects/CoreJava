@@ -9,8 +9,9 @@ public class MethodTypes {
         System.out.println("with parameter without return");
         System.out.println("a + b " + (a + b));
     }
-    
-    public static int sub () {
+  
+  public static Integer sub () {
+        
         System.out.println("without paremeter with return");
         return 10 - 2;
     }
