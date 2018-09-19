@@ -20,6 +20,7 @@ public class FileStreamDemo {
             String s = Data;
             byte b[] = s.getBytes();//converting string into byte array
             fout.write(b);
+          fout.flush();
             fout.close();
             System.out.println("success...");
         } catch (Exception e) {
