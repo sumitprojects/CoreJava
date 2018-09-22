@@ -12,10 +12,11 @@ interface Main {
 
 //abstraction level 1
 abstract class Level1 implements Main {
-    @Override
-    public void method1() {
-        System.out.println("Hello I am implemented in " + getClass());
-    }
+  //concrete class and concrete method
+  @Override
+  public void method1 () {
+    System.out.println("Hello I am implemented in " + getClass());
+  }
 }
 
 //abstraction level 2
