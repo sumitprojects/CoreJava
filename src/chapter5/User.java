@@ -3,14 +3,21 @@ package chapter5;
 public class User {
     private int id;
     private String name;
-    
-    public User () {
-    }
-    
-    public User (int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  
+  /**
+   * Default Java Code
+   */
+  public User () {
+  }
+  
+  /**
+   * @param id   <h2>takes id as an argument</h2>
+   * @param name <h2>takes name an argument</h2>
+   */
+  public User (int id, String name) {
+    this.id = id;
+    this.name = name;
+  }
     
     public int getId () {
         return id;
