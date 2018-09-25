@@ -6,9 +6,9 @@ import java.io.*;
  * FileStream Demo class
  */
 public class FileStreamDemo {
-    FileInputStream fin;
+    FileInputStream fin, fin2;
     FileOutputStream fout;
-    
+    SequenceInputStream seq;
     /**
      * @param file takes file as an arguments
      * @param Data takes data to write in the file
@@ -53,6 +53,35 @@ public class FileStreamDemo {
             System.out.println("success...");
         } catch (FileNotFoundException e) {
             System.err.println("Given file " + file + " not Found!");
+        } catch (IOException e) {
+            throw new IOException("File Read Error");
+        }
+        return s;
+    }
+    
+    StringBuffer seqinputstream (File file1, File file2) throws IOException {
+        StringBuffer s = new StringBuffer();
+        try {
+            fin = new FileInputStream(file1);
+            fin2 = new FileInputStream(file2);
+            seq = new SequenceInputStream(fin, fin2);
+            
+            int i = 0;
+            /*
+             * Reads the file to the EOF
+             * */
+            while ((i = seq.read()) != -1) {
+                /*
+                 * Append the characters into the Buffer
+                 * */
+                s.append((char) i);
+            }
+            fin.close();
+            fin2.close();
+            seq.close();
+            System.out.println("success...");
+        } catch (FileNotFoundException e) {
+            System.err.println("Given file " + file1 + "/" + file2 + " not Found!");
         } catch (IOException e) {
             throw new IOException("File Read Error");
         }
