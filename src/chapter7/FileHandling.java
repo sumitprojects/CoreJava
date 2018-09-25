@@ -49,7 +49,7 @@ public class FileHandling {
                 System.out.println("\t\t File Reading Started");
                 System.out.println("-------------------------------------------------------------------");
                 try {
-                    sb = filedemo.seqinputstream(file, file2);
+                    sb = filedemo.seqinputstream(file2, file);
                     System.out.println("-------------------------------------------------------------------");
                     System.out.println("\t\t File Writing Started");
                     System.out.println("-------------------------------------------------------------------");
