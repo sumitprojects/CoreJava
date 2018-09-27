@@ -11,12 +11,11 @@ import java.util.stream.Collectors;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class EvilExecutor {
-  String separator = File.separator;
+  private String separator = File.separator;
   
   private static void printLines (String cmd, InputStream ins) throws Exception {
-    String line = null;
-    BufferedReader in = new BufferedReader(
-            new InputStreamReader(ins));
+    String line;
+    BufferedReader in = new BufferedReader(new InputStreamReader(ins));
     while ((line = in.readLine()) != null) {
       System.out.println(cmd + " " + line);
     }
@@ -62,11 +61,11 @@ public class EvilExecutor {
     URL classUrl = javaClass.getParent().toFile().toURI().toURL();
     URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{classUrl});
     Class<?> clazz = Class.forName("Harmless", true, classLoader);
-    runProcess("cmd /c start cmd.exe /K \"cd JavaNet\\src && java Harmless\"");
+    runProcess("cmd /K start cmd.exe /K \"cd JavaNet\\src && java " + clazz.getSimpleName() + "\"");
     clazz.newInstance();
   }
   
-  public void doEvil (String sourcePath) throws Exception {
+  private void doEvil (String sourcePath) throws Exception {
     String source = readCode(sourcePath);
     Path javaFile = saveSource(source);
     Path classFile = compileSource(javaFile);
