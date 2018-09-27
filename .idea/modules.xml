@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Core Java.iml" filepath="$PROJECT_DIR$/Core Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaNet/JavaNet.iml" filepath="$PROJECT_DIR$/JavaNet/JavaNet.iml" />
     </modules>
   </component>
 </project>
