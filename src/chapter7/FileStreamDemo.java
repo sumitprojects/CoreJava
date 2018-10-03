@@ -9,6 +9,8 @@ public class FileStreamDemo {
     FileInputStream fin, fin2;
     FileOutputStream fout;
     SequenceInputStream seq;
+	ObjectOutputStream objectOutputStream;
+	ObjectInputStream objectInputStream;
     /**
      * @param file takes file as an arguments
      * @param Data takes data to write in the file
@@ -87,4 +89,42 @@ public class FileStreamDemo {
         }
         return s;
     }
+	
+	void transferObject (User user, File file) {
+		try {
+			fout = new FileOutputStream(file);
+			objectOutputStream = new ObjectOutputStream(fout);
+			try {
+				objectOutputStream.writeObject(user);
+			} catch (Exception e) {
+				System.out.println("Object parsing Err: " + e.getMessage());
+			} finally {
+				objectOutputStream.flush();
+				objectOutputStream.close();
+				fout.close();
+			}
+		} catch (Exception e) {
+			System.out.println("File parsing Err: " + e.getMessage());
+		}
+	}
+	
+	User readObject (File file) {
+		User user = null;
+		try {
+			fin = new FileInputStream(file);
+			objectInputStream = new ObjectInputStream(fin);
+			try {
+				user = (User) objectInputStream.readObject();
+			} catch (Exception e) {
+				System.out.println("Object parsing Err: " + e.getMessage());
+			} finally {
+				objectOutputStream.flush();
+				objectOutputStream.close();
+				fout.close();
+			}
+		} catch (Exception e) {
+			System.out.println("File parsing Err: " + e.getMessage());
+		}
+		return user;
+	}
 }

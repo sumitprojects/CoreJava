@@ -1,8 +1,10 @@
 package chapter4;
 
+import chapter8.User;
+
 public class StringFun {
     public static void main(String[] args) {
-        // Mutable(Unchangeable)
+		// Immutable(Unchangeable / unmodifiable)
       String data = "hello", string = "This is string.", another = string.concat("this is another string."), data2 = "";
         char[] cc = string.toCharArray();
         System.out.println("String Comparision :" + data.compareTo(string) + "\n" +
@@ -34,5 +36,10 @@ public class StringFun {
   
       System.out.println(string.replace("is", "was") + "\n" +
               "data2 empty:" + data2.isEmpty());
+	
+		User user = new User();
+		user.setId(2);
+		user.setName("sumit");
+		System.out.println(user);
     }
 }
