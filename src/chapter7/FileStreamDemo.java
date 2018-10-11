@@ -1,6 +1,7 @@
 package chapter7;
 
 import java.io.*;
+import java.security.PermissionCollection;
 
 /**
  * FileStream Demo class
@@ -11,18 +12,20 @@ public class FileStreamDemo {
     SequenceInputStream seq;
 	ObjectOutputStream objectOutputStream;
 	ObjectInputStream objectInputStream;
-    /**
+	Writer writer;
+	
+	/**
      * @param file takes file as an arguments
      * @param Data takes data to write in the file
      * @throws IOException
      */
     void fileoutputstream (File file, String Data) throws IOException {
         try {
-            fout = new FileOutputStream(file);
+			fout = new FileOutputStream(file, true);
             String s = Data;
             byte b[] = s.getBytes();//converting string into byte array
             fout.write(b);
-          fout.flush();
+			fout.flush();
             fout.close();
             System.out.println("success...");
         } catch (Exception e) {
@@ -126,5 +129,28 @@ public class FileStreamDemo {
 			System.out.println("File parsing Err: " + e.getMessage());
 		}
 		return user;
+	}
+	
+	void fileWriterWithAppend (File file, String Data) {
+		try {
+			FilePermission file1 = new FilePermission(file.toString(), "read,write");
+			PermissionCollection permission = file1.newPermissionCollection();
+			permission.add(file1);
+			if (permission.implies(new FilePermission(file.toString(), "read,write"))) {
+				writer = new FileWriter(file, true);
+				writer.append("\n" + Data);
+				writer.close();
+				System.out.println("File writing done");
+			} else {
+				throw new IOException("File permission is not granted.");
+			}
+/*
+			writer = new FileWriter(file,true);
+			writer.append(Data);
+			writer.close();
+*/
+		} catch (Exception e) {
+			System.err.println("Error : " + e);
+		}
 	}
 }

@@ -25,7 +25,9 @@ public class FileHandling {
                 "1. File Write\n" +
                 "2. File Read\n" +
 				"3. Seq Read\n" +
-				"4. Obj to file");
+				"4. Obj to file" + "\n" +
+				"5. object reader" + "\n" +
+				"6. Data append on file");
         choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -74,6 +76,13 @@ public class FileHandling {
 				System.out.println("-------------------------------------------------------------------");
 				chapter7.User user = filedemo.readObject(file);
 				System.out.println(user.getId() + " " + user.getName() + " " + user.getAge());
+				System.out.println("success");
+				break;
+			case 6:
+				System.out.println("-------------------------------------------------------------------");
+				System.out.println("\t\t File append");
+				System.out.println("-------------------------------------------------------------------");
+				filedemo.fileWriterWithAppend(file, u.toString());
 				System.out.println("success");
 				break;
             default:
