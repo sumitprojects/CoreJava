@@ -13,6 +13,7 @@ public class FileHandling {
 	private static final chapter7.User user = new chapter7.User(1, "sumit", 25);
     private final static File file = new File("E:\\CoreJava\\src\\chapter7\\txt\\Data.txt"), file2 = new File("E:\\CoreJava\\src\\chapter7\\txt\\Data2.txt");
     private final static FileStreamDemo filedemo = new FileStreamDemo();
+	private static StringBuffer stringbuffer = new StringBuffer();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
@@ -27,7 +28,9 @@ public class FileHandling {
 				"3. Seq Read\n" +
 				"4. Obj to file" + "\n" +
 				"5. object reader" + "\n" +
-				"6. Data append on file");
+				"6. Data append on file writer" + "\n" +
+				"7. File Reader" + "\n" +
+				"8. File Writing with printstream");
         choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -84,6 +87,20 @@ public class FileHandling {
 				System.out.println("-------------------------------------------------------------------");
 				filedemo.fileWriterWithAppend(file, u.toString());
 				System.out.println("success");
+				break;
+			case 7:
+				System.out.println("-------------------------------------------------------------------");
+				System.out.println("\t\t File Reader");
+				System.out.println("-------------------------------------------------------------------");
+				stringbuffer = filedemo.fileReader(file);
+				System.out.println(stringbuffer);
+				//System.out.format("Data : %s \n",stringbuffer);
+				break;
+			case 8:
+				System.out.println("-------------------------------------------------------------------");
+				System.out.println("\t\t File Writing with printstream");
+				System.out.println("-------------------------------------------------------------------");
+				filedemo.fileprintstream(file, u.toString());
 				break;
             default:
                 System.out.println("Invalid Choice");

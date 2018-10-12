@@ -7,13 +7,15 @@ import java.security.PermissionCollection;
  * FileStream Demo class
  */
 public class FileStreamDemo {
-    FileInputStream fin, fin2;
-    FileOutputStream fout;
-    SequenceInputStream seq;
-	ObjectOutputStream objectOutputStream;
-	ObjectInputStream objectInputStream;
-	Writer writer;
-	
+	private FileInputStream fin, fin2;
+	private FileOutputStream fout;
+	private SequenceInputStream seq;
+	private ObjectOutputStream objectOutputStream;
+	private ObjectInputStream objectInputStream;
+	private Writer writer;
+	private StringBuffer stringBuffer = new StringBuffer();
+	private Reader reader;
+	private PrintStream printStream;
 	/**
      * @param file takes file as an arguments
      * @param Data takes data to write in the file
@@ -151,6 +153,34 @@ public class FileStreamDemo {
 */
 		} catch (Exception e) {
 			System.err.println("Error : " + e);
+		}
+	}
+	
+	StringBuffer fileReader (File file) {
+		try {
+			reader = new FileReader(file);
+			int data;
+			while ((data = reader.read()) != -1) {
+				stringBuffer.append((char) data);
+			}
+		} catch (Exception e) {
+			System.out.println("Error " + e.getMessage());
+		}
+		return stringBuffer;
+	}
+	
+	void fileprintstream (File file, String Data) throws IOException {
+		try {
+			fout = new FileOutputStream(file);
+			printStream = new PrintStream(fout);
+			printStream.println(Data);
+			printStream.println(Data);
+			printStream.println(Data);
+			fout.flush();
+			fout.close();
+			System.out.println("success...");
+		} catch (Exception e) {
+			throw new IOException("File Write Error");
 		}
 	}
 }
