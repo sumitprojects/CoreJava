@@ -103,7 +103,7 @@ public class FileHandling {
 				filedemo.fileprintstream(file, u.toString());
 				break;
             default:
-                System.out.println("Invalid Choice");
+				System.err.println("Invalid Choice");
                 break;
 
         }
