@@ -26,7 +26,7 @@ public class ScanningData {
         //   u.setName(data);
         System.out.println("-------------------------------------------------------------------------");
         System.out.println("Hello, your id is " + u.getId() +
-                " and Name is " + u.getName());
+                " and Name is " + u.getName().trim());
         System.out.println("-------------------------------------------------------------------------");
     }
 }
