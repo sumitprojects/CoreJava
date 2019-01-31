@@ -1,22 +1,22 @@
 package chapter3;
 
 public class ThisKeyword {
-    int id;
-    String bookName;
-    String author;
-    float price;
-    
-    public ThisKeyword (int id) {
+	private int id;
+	private String bookName;
+	private String author;
+	private float price;
+	
+	private ThisKeyword (int id) {
         this.id = id;
     }
-    
-    public ThisKeyword (int id, String bookName, String author) {
+	
+	private ThisKeyword (int id, String bookName, String author) {
         this(id);
         this.bookName = bookName;
         this.author = author;
     }
-    
-    public ThisKeyword (int id, String bookName, String author, float price) {
+	
+	private ThisKeyword (int id, String bookName, String author, float price) {
         this(id, bookName, author);
         this.price = price;
     }
@@ -34,8 +34,8 @@ public class ThisKeyword {
         System.out.println("----------------------------------------------------------------");
         
     }
-    
-    public void display () {
+	
+	private void display () {
         for (int i = 0; i < 50; i++) {
             System.out.print("-");
         }

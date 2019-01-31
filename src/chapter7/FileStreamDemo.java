@@ -21,11 +21,11 @@ public class FileStreamDemo {
      * @param Data takes data to write in the file
      * @throws IOException
      */
-    void fileoutputstream (File file, String Data) throws IOException {
+	void fileoutputstream (File file, String Data) throws IOException {
         try {
 			fout = new FileOutputStream(file, true);
             String s = Data;
-            byte b[] = s.getBytes();//converting string into byte array
+			byte[] b = s.getBytes();//converting string into byte array
             fout.write(b);
 			fout.flush();
             fout.close();

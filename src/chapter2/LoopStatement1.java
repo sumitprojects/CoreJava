@@ -16,7 +16,7 @@ public class LoopStatement1 {
         
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t NEW FOR LOP ");
-        int arr[] = {12, 23, 44, 56, 78};
+		int[] arr = {12, 23, 44, 56, 78};
         //for each
         for (int i : arr) {
             System.out.println(i);
@@ -43,7 +43,7 @@ public class LoopStatement1 {
         for (int i = 1; i <= 3; i++) {
             bb:
             for (int j = 1; j <= 3; j++) {
-                if (i == 2 && j == 2) {
+				if (i == 2 && j == 3) {
                     continue aa;
                 }
                 System.out.println(i + " " + j);

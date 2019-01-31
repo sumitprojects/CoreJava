@@ -37,7 +37,7 @@ public class FileHandling {
                 System.out.println("-------------------------------------------------------------------");
                 System.out.println("\t\t File Writing Started");
                 System.out.println("-------------------------------------------------------------------");
-                filedemo.fileoutputstream(file, u.toString());
+				filedemo.fileoutputstream(file, sc.nextLine());
                 break;
             case 2:
                 System.out.println("-------------------------------------------------------------------");
@@ -46,11 +46,12 @@ public class FileHandling {
     
                 try {
                     sb = filedemo.fileinputstream(file);
+					System.out.println("\t\t File Data: \n" + sb);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.out.println("\t\t File Data: \n" + sb);
-                break;
+	
+				break;
             case 3:
                 System.out.println("-------------------------------------------------------------------");
                 System.out.println("\t\t File Reading Started");

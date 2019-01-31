@@ -28,9 +28,6 @@ class ICICI extends Bank{
     float getRateOfInterest() {
         return 10.7f;
     }
-
-    void disp() {
-    }
 }
 
 
@@ -46,7 +43,6 @@ public class RuntimePolymorphism {
         b = new AXIS();
         System.out.println("AXIX Rate of Interest = \t" + b.getRateOfInterest());
         b = new ICICI();
-        //b.disp();
         System.out.println("ICICI Rate of Interest =\t" + b.getRateOfInterest());
         System.out.println("----------------------------------------------------------------");
     }

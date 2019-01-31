@@ -1,8 +1,8 @@
 package chapter3.classobjects;
 
 class Rectangle {
-    int length;
-    int width;
+	private int length;
+	private int width;
 
     void insert(int l, int w) {
         length = l;
