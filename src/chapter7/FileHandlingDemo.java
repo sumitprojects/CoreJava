@@ -1,6 +1,7 @@
 package chapter7;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class FileHandlingDemo {
 	public static void main (String[] args) {
@@ -40,9 +41,11 @@ public class FileHandlingDemo {
 	private static void writingToFile (String path) {
 		try {
 			File file = new File(path);
+			Scanner scanner = new Scanner(System.in);
 			if (file.canWrite() && file.isFile()) {
 				FileOutputStream outputStream = new FileOutputStream(file, true);
-				String data = "Hello Sumit More!\n";
+				System.out.println("Enter the data to write");
+				String data = scanner.nextLine();
 				outputStream.write(data.getBytes());
 				outputStream.close();
 				System.out.println("Data written Successfully");
