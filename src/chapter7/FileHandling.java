@@ -37,7 +37,7 @@ public class FileHandling {
                 System.out.println("-------------------------------------------------------------------");
                 System.out.println("\t\t File Writing Started");
                 System.out.println("-------------------------------------------------------------------");
-				filedemo.fileoutputstream(file, sc.nextLine());
+				filedemo.fileoutputstream(file, "sumit");
                 break;
             case 2:
                 System.out.println("-------------------------------------------------------------------");

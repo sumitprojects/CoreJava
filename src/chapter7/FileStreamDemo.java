@@ -27,12 +27,13 @@ public class FileStreamDemo {
             String s = Data;
 			byte[] b = s.getBytes();//converting string into byte array
             fout.write(b);
-			fout.flush();
-            fout.close();
             System.out.println("success...");
         } catch (Exception e) {
             throw new IOException("File Write Error");
-        }
+		} finally {
+			fout.flush();
+			fout.close();
+		}
     }
     
     /**
@@ -46,17 +47,23 @@ public class FileStreamDemo {
         StringBuffer s = new StringBuffer();
         try {
             fin = new FileInputStream(file);
-            int i = 0;
+			BufferedInputStream bin = new BufferedInputStream(fin);
+			int i = 0;
             /*
              * Reads the file to the EOF
              * */
-            while ((i = fin.read()) != -1) {
+			int stop = bin.available();
+	
+			System.out.println(bin.markSupported());
+			while ((i = bin.read()) != -1) {
                 /*
                  * Append the characters into the Buffer
                  * */
-                s.append((char) i);
-            }
-            fin.close();
+				if (bin.markSupported()) {
+					s.append((char) i);
+				}
+			}
+			bin.close();
             System.out.println("success...");
         } catch (FileNotFoundException e) {
             System.err.println("Given file " + file + " not Found!");
@@ -72,7 +79,7 @@ public class FileStreamDemo {
             fin = new FileInputStream(file1);
             fin2 = new FileInputStream(file2);
             seq = new SequenceInputStream(fin, fin2);
-            
+			//String data[] = {"sumit","more"};
             int i = 0;
             /*
              * Reads the file to the EOF
