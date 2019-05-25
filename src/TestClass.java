@@ -1,128 +1,191 @@
+import chapter7.Navigation;
+
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.EnumMap;
 import java.util.Scanner;
-import java.util.Set;
 
 class Node {
-	private int key;
-	private int value;
-	private ArrayList<Node> nodes = new ArrayList<>();
+	private static ArrayList<Node> nodeArrayList = new ArrayList<>();
+	private static int rightMax = 1;
+	private static int downMax = 1;
+	private long time;
+	private boolean visited = false;
+	private EnumMap<Navigation, Integer> data;
+	private Node current;
 	
-	Node () {
+	private Node () {
 	}
 	
-	Node (int key, int value, Node n) {
-		this.key = key;
-		this.value = value;
-		this.nodes.add(n);
+	private Node (int index, int value, int lengthOfGrid) {
+		data = new EnumMap<>(Navigation.class);
+		this.time = value;
+		data.put(Navigation.UP, (index - lengthOfGrid) > 0 ? (index - lengthOfGrid) : -1);
+		data.put(Navigation.DOWN, (index + lengthOfGrid) <= lengthOfGrid * lengthOfGrid ? (index + lengthOfGrid) : -1);
+		data.put(Navigation.RIGHT, (index % lengthOfGrid == 0) ? -1 : index + 1);
+		data.put(Navigation.LEFT, ((index - 1) % lengthOfGrid != 0) ? (index - 1) : -1);
 	}
 	
-	int getKey () {
-		return key;
+	static Node getInstance () {
+		return new Node();
 	}
 	
-	void setKey (int key) {
-		this.key = key;
+	static void addNode (int index, int value, int lengthOfGrid) {
+		nodeArrayList.add(new Node(index, value, lengthOfGrid));
 	}
 	
-	int getValue () {
-		return value;
+	static Node getFirst () {
+		return nodeArrayList.get(0);
 	}
 	
-	void setValue (int value) {
-		this.value = value;
+	static void traverseNode (Node e, long time) {
+		Node minNode = e.getMinNode();
+		if (minNode != null) {
+			if (time > minNode.getTime() && time > 0) {
+				minNode.visit();
+				traverseNode(minNode, time - minNode.getTime());
+			}
+		} else {
+			System.out.println(rightMax * downMax);
+		}
 	}
 	
-	void add (Node n) {
-		this.nodes.add(n);
+	private void visit () {
+		this.visited = true;
 	}
 	
-	boolean equals (Node o) {
-		return (o.getKey() == this.getKey() && o.getValue() == this.getValue()) || (o.getKey() == this.getValue() && o.getValue() == this.getKey());
+	private boolean isVisited () {
+		return !visited;
 	}
 	
-	ArrayList<Node> getNodes () {
-		return nodes;
+	private boolean getUp () {
+		return getUpNode() != null;
 	}
+	
+	private boolean getDown () {
+		return getDownNode() != null;
+	}
+	
+	private boolean getRight () {
+		return getRightNode() != null;
+	}
+	
+	private boolean getLeft () {
+		return getLeftNode() != null;
+	}
+	
+	private Node getUpNode () {
+		if (data.get(Navigation.UP) != -1) {
+			return nodeArrayList.get(data.get(Navigation.UP) - 1);
+		}
+		return null;
+	}
+	
+	private Node getDownNode () {
+		if (data.get(Navigation.DOWN) != -1) {
+			return nodeArrayList.get(data.get(Navigation.DOWN) - 1);
+		}
+		return null;
+	}
+	
+	private Node getLeftNode () {
+		if (data.get(Navigation.LEFT) != -1) {
+			return nodeArrayList.get(data.get(Navigation.LEFT) - 1);
+		}
+		return null;
+	}
+	
+	private Node getRightNode () {
+		if (data.get(Navigation.RIGHT) != -1) {
+			return nodeArrayList.get(data.get(Navigation.RIGHT) - 1);
+		}
+		return null;
+	}
+	
+	private long getTime () {
+		return time;
+	}
+	
+	private Node getMinNode () {
+		ArrayList<Long> min = new ArrayList<>();
+		Node right, left, top, bottom;
+		long minTime;
+		if (getRight()) {
+			min.add((this.getRightNode()).getTime());
+		}
+		if (getDown()) {
+			min.add((this.getDownNode()).getTime());
+		}
+		if (this.getUp()) {
+			min.add((this.getUpNode()).getTime());
+		}
+		if (this.getLeft()) {
+			min.add((this.getLeftNode()).getTime());
+		}
+		minTime = Collections.min(min);
+		if (this.getRight()) {
+			if ((this.getRightNode()).getTime() == minTime && this.getRightNode().isVisited()) {
+				if (rightMax < (nodeArrayList.size() / 2)) {
+					rightMax++;
+				}
+				return this.getRightNode();
+			}
+		}
+		
+		if (getDown()) {
+			if ((getDownNode()).getTime() == minTime && getDownNode().isVisited()) {
+				if (downMax < (nodeArrayList.size() / 2)) {
+					downMax++;
+				}
+				return getDownNode();
+			}
+		}
+		
+		if (getUp()) {
+			if ((getUpNode()).getTime() == minTime && getUpNode().isVisited()) {
+				return getRightNode();
+			}
+		}
+		
+		if (getLeft()) {
+			if ((getLeftNode()).getTime() == minTime && getLeftNode().isVisited()) {
+				return getLeftNode();
+			}
+		}
+		
+		return null;
+	}
+	
 	
 	@Override
 	public String toString () {
-		return "\n Node =>" +
-				"key=" + key +
-				", value=" + value + "\t" +
-				"List" + nodes +
-				'\n';
+		return "[" +
+				"time=" + time +
+				"    data=" + data +
+				']' + "\n";
+	}
+	
+	void printNodes () {
+		for (Node n : nodeArrayList) {
+			System.out.println(n);
+		}
 	}
 }
 
 public class TestClass {
-	private Set<Integer> data = new HashSet<>();
 	
 	public static void main (String[] args) {
-		int nLen, qLen;
-		ArrayList<Node> nodeList = new ArrayList<>(), pathList = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
-		TestClass testClass = new TestClass();
-		/*
-		 * scanning the node value
-		 * */
-		nLen = sc.nextInt();
-		for (int i = 0; i < nLen; i++) {
-			Node nodes = new Node();
-			nodes.setKey(i);
-			nodes.setValue(sc.nextInt());
-			nodeList.add(nodes);
+		int length = sc.nextInt(), time = sc.nextInt();
+		
+		for (int i = 1; i <= length * length; i++) {
+			Node.addNode(i, sc.nextInt(), length);
 		}
 		try {
-			for (int i = 0; i < (nLen - 1); i++) {
-				int x = sc.nextInt() - 1, y = sc.nextInt() - 1;
-				try {
-					if (x > y) {
-						int temp = x;
-						x = y;
-						y = temp;
-					}
-					nodeList.get(x).add(nodeList.get(y));
-				} catch (Exception e) {
-				}
-			}
-			System.out.println(nodeList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		qLen = sc.nextInt();
-		for (int i = 0; i < (qLen); i++) {
-			int x = sc.nextInt() - 1, y = sc.nextInt() - 1;
-			if (x > y) {
-				int temp = x;
-				x = y;
-				y = temp;
-			}
-			System.out.println(testClass.findDistinctValue(nodeList, x, y));
-			testClass.data.clear();
-		}
-	}
-	
-	private int findDistinctValue (ArrayList<Node> nodeList, int x, int y) {
-		try {
-			for (int i = 0; i < nodeList.size(); i++) {
-				if (nodeList.get(i).getKey() == x) {
-					System.out.println("Outer " + nodeList.get(i).getValue());
-					data.add(nodeList.get(i).getValue());
-					for (int j = 0; j < nodeList.get(i).getNodes().size(); j++) {
-						if (nodeList.get(i).getNodes().get(j).getKey() == y) {
-							data.add(nodeList.get(i).getNodes().get(j).getValue());
-							System.out.println(nodeList.get(i).getNodes().get(j).getValue());
-						}
-					}
-				} else {
-					findDistinctValue(nodeList.get(i).getNodes(), x, y);
-				}
-			}
+			Node.traverseNode(Node.getFirst(), time);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
-		return data.size();
 	}
 }
