@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ThreadingDemo2 implements Runnable {
 	int sum;
 	
@@ -7,9 +9,20 @@ public class ThreadingDemo2 implements Runnable {
 		Thread thread = new Thread(threadingDemo2, "First");
 		Thread thread2 = new Thread(threadingDemo2, "Second");
 		Thread thread3 = new Thread(threadingDemo2, "Third");
-		thread.setPriority(10);
-		thread2.setPriority(5);
-		thread3.setPriority(1);
+		try {
+			if (args.length > 0) {
+				System.out.println("Priority Updated" + Arrays.toString(args));
+				thread.setPriority(Integer.valueOf(args[0]));
+				thread2.setPriority(Integer.valueOf(args[1]));
+				thread3.setPriority(Integer.valueOf(args[2]));
+			} else {
+				thread.setPriority(10);
+				thread2.setPriority(5);
+				thread3.setPriority(1);
+			}
+		} catch (Exception e) {
+		
+		}
 		
 		thread.start();
 

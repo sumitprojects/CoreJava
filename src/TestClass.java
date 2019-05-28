@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.Scanner;
+import java.util.*;
 
 enum Navigation {
 	UP, DOWN, RIGHT, LEFT
@@ -19,7 +16,7 @@ class Node {
 	private Node () {
 	}
 	
-	private Node (int index, int value, int lengthOfGrid) {
+	private Node (int index, long value, int lengthOfGrid) {
 		data = new EnumMap<>(Navigation.class);
 		this.time = value;
 		this.index = index;
@@ -40,27 +37,71 @@ class Node {
 	
 	static void traverseNode (Node e, long time) {
 		Node minNode = e.getMinNode();
-		if (minNode != null) {
-			timeLimit -= minNode.getTime();
-			if (timeLimit >= 0) {
-				minNode.visit();
-				System.out.println(e.index + " " + minNode.index);
-				traverseNode(minNode, time - minNode.getTime());
-			} else {
-				System.out.println("ANS1 : " + rightMax + " " + downMax + " " + time);
-			}
+		if (rightMax == lengthOfGrid && downMax == lengthOfGrid) {
+			System.out.println(rightMax * downMax);
 		} else {
-			for (Node node : nodeArrayList) {
-				node.visited = false;
-			}
-			if (timeLimit > 0) {
-				traverseNode(e, time);
+			if (minNode != null) {
+				timeLimit -= minNode.getTime();
+				if (timeLimit > 0) {
+					minNode.visit();
+					traverseNode(minNode, time - minNode.getTime());
+				} else {
+					//				System.out.println("ANS1 : " + rightMax + " " + downMax + " " + timeLimit);
+					System.out.println(rightMax * downMax);
+				}
 			} else {
-				System.out.println("ANS2 : " + rightMax + " " + downMax + " " + time);
+				makeAllVisible(e);
+				if (timeLimit > 0) {
+					traverseNode(e, time);
+				} else {
+					//				System.out.println("ANS2 : " + rightMax + " " + downMax + " " + timeLimit);
+					System.out.println(rightMax * downMax);
+				}
 			}
 		}
 	}
 	
+	
+	private static void makeAllVisible (Node e) {
+		try {
+			if (e.getLeft()) {
+				if (Objects.requireNonNull(e.getLeftNode()).isVisited()) {
+					e.getLeftNode().visited = false;
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		try {
+			if (e.getDown()) {
+				if (Objects.requireNonNull(e.getDownNode()).isVisited()) {
+					e.getLeftNode().visited = false;
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		try {
+			if (e.getUp()) {
+				if (Objects.requireNonNull(e.getUpNode()).isVisited()) {
+					e.getLeftNode().visited = false;
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		try {
+			if (e.getRight()) {
+				if (Objects.requireNonNull(e.getRightNode()).isVisited()) {
+					e.getLeftNode().visited = false;
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 	private void visit () {
 		this.visited = true;
 	}
@@ -150,7 +191,7 @@ class Node {
 			}
 			if (bottom != null) {
 				if (bottom.getTime() == minTime && bottom.isVisited() && (timeLimit - bottom.getTime()) >= 0) {
-					if (downMax < lengthOfGrid && index <= downMax) {
+					if (downMax < lengthOfGrid && ((bottom.index / lengthOfGrid) + 1 > downMax)) {
 						downMax++;
 					}
 					return bottom;
@@ -165,14 +206,20 @@ class Node {
 			
 			if (right != null) {
 				if (right.getTime() == minTime && right.isVisited() && (timeLimit - right.getTime()) >= 0) {
-					if (rightMax < lengthOfGrid && index <= rightMax) {
+					if (rightMax < lengthOfGrid) {
 						rightMax++;
 					}
 					return right;
 				}
 			}
 		}
-		
+//
+//		if(minTime>timeLimit){
+//			if(right!=null && right.getTime()==minTime)return right;
+//			else if(left!=null && left.getTime()==minTime)return left;
+//			else if(top!=null && top.getTime()==minTime)return top;
+//			else if(bottom!=null && bottom.getTime()==minTime)return bottom;
+//		}
 		return null;
 	}
 	
