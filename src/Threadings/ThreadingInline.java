@@ -1,3 +1,5 @@
+package Threadings;
+
 public class ThreadingInline {
 	public static void main (String[] args) {
 		Thread thread = new Thread("First") {

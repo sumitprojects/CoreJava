@@ -1,3 +1,5 @@
+package Threadings;
+
 import java.util.Arrays;
 
 public class ThreadingDemo2 implements Runnable {
