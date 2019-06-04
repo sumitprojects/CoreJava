@@ -5,18 +5,29 @@ public class Constructors {
     String name;
 
     public Constructors() {
+		id = 1;
+		name = "sumit";
     }
-
+	
+	public Constructors (int id) {
+		this.id = id;
+	}
+	
+	public Constructors (String name) {
+		this.name = name;
+	}
+    
     public Constructors(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
     public static void main(String[] args) {
-        Constructors c = new Constructors();
+		Constructors c = new Constructors(10);
         System.out.println("----------------------------------------------------------------");
         System.out.println("\t\t default constructor Constructors c = new Constructors()   =>" + c);
         System.out.println("----------------------------------------------------------------");
+		System.out.println("\t\t " + c.id + "\t" + c.name);
 
         System.out.println("----------------------------------------------------------------");
         Constructors c1 = new Constructors(10, "sumit");
