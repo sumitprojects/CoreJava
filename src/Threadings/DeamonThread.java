@@ -9,9 +9,9 @@ public class DeamonThread implements Runnable {
 		thread1.setDaemon(true);
 		thread2.setDaemon(true);
 		
+		thread3.start();
 		thread1.start();
 		thread2.start();
-		thread3.start();
 	}
 	
 	@Override
@@ -21,10 +21,10 @@ public class DeamonThread implements Runnable {
 				Thread.sleep(100);
 				System.out.println("Deamon " + Thread.currentThread().getName());
 			} else {
-				System.out.println(Thread.currentThread().getName());
 				Thread.sleep(200);
+				System.out.println(Thread.currentThread().getName());
 			}
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
