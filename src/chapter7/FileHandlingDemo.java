@@ -3,6 +3,7 @@ package chapter7;
 import java.io.*;
 import java.util.Scanner;
 
+//enum data{YES,NO}
 public class FileHandlingDemo {
 	public static void main (String[] args) {
 		String path = "E:\\CoreJava\\src\\chapter7\\txt\\Data3.txt";
