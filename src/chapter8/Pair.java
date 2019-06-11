@@ -3,10 +3,10 @@ package chapter8;
 import java.util.ArrayList;
 
 public class Pair {
-	private static ArrayList<Node> list = new ArrayList<>();
+	private static ArrayList<Node<Integer, Integer>> list = new ArrayList<>();
 	
 	Pair (int a, int b) {
-		list.add(new Node(a, b));
+		list.add(new Node<>(a, b));
 	}
 	
 	public static void display () {
@@ -15,13 +15,13 @@ public class Pair {
 	
 	public static void main (String[] args) {
 		Pair p = new Pair(1, 2);
-		Pair p1 = new Pair(1, 2);
+		//Pair p1 = new Pair(1, 2);
 		Pair.display();
 		System.out.println(p.getValue(1));
 	}
 	
-	int getValue (int a) {
-		for (Node d : list) {
+	Integer getValue (Integer a) {
+		for (Node<Integer, Integer> d : list) {
 			if (d.getA() == a) {
 				return d.getB();
 			}
@@ -29,28 +29,28 @@ public class Pair {
 		return -1;
 	}
 	
-	private class Node {
-		int a;
-		int b;
+	private static class Node<K, V> {
+		K a;
+		V b;
 		
-		Node (int c, int d) {
+		Node (K c, V d) {
 			a = c;
 			b = d;
 		}
 		
-		public int getA () {
+		public K getA () {
 			return a;
 		}
 		
-		public void setA (int a) {
+		public void setA (K a) {
 			this.a = a;
 		}
 		
-		public int getB () {
+		public V getB () {
 			return b;
 		}
 		
-		public void setB (int b) {
+		public void setB (V b) {
 			this.b = b;
 		}
 		
