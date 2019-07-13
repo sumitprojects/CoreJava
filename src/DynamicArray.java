@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.List;
 
 public class DynamicArray {
 	private static int counter = 0;
@@ -20,12 +20,12 @@ public class DynamicArray {
 		d.add(60);
 		d.display();
 		System.out.println(d.get(10));
-		LinkedList<Integer> data = new LinkedList<>();
+		List<Integer> data = new ArrayList<>();
 		data.add(20);
 		data.add(40);
 		data.add(50);
 		data.add(60);
-		data.remove(2);
+//		data.remove(2);
 		//System.out.println(data);
 		//d.add(data);
 		//d.display();
@@ -34,13 +34,13 @@ public class DynamicArray {
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
-		
-		System.out.println("sublist " + data.subList(1, 2));
-		data.forEach(System.out::println);
-		data.offerFirst(10);
-		data.add(2, 10);
-		data.add(4, 10);
-		data.removeLastOccurrence(10);
+
+//		System.out.println("sublist " + data.subList(1, 2));
+//		data.forEach(System.out::println);
+//		data.offerFirst(10);
+//		data.add(2, 10);
+//		data.add(4, 10);
+//		data.removeLastOccurrence(10);
 		
 		ArrayList<Integer> dd = new ArrayList<>();
 		dd.addAll(data);

@@ -2,7 +2,6 @@ package Collections;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
@@ -25,15 +24,15 @@ public class User implements Serializable {
 			data.add(new User(i + 1, ((char) (i + 65)) + "sumit", random.nextInt(100) + 1));
 		}
 		
-		Collections.sort(data, new UserIDOrder());
+		data.sort(new UserIDOrder());
 		
 		System.out.println(data);
 		
-		Collections.sort(data, new UserAgeOrder(true));
+		data.sort(new UserAgeOrder(true));
 		
 		System.out.println(data);
 		
-		Collections.sort(data, new UserNameOrder(true));
+		data.sort(new UserNameOrder(true));
 		
 		System.out.println(data);
 	}
