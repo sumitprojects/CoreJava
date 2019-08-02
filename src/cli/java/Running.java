@@ -67,7 +67,7 @@ public final class Running {
 		try {
 			List<String> cmdList = new ArrayList<>();
 			// adding command and args to the list
-			cmdList.add("sh");
+            cmdList.add("notepad");
 			System.out.println(runCommand(cmdList));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
