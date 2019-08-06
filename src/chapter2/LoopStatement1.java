@@ -50,6 +50,5 @@ public class LoopStatement1 {
             }
         }
         System.out.println("----------------------------------------------------------------");
-        
     }
 }
