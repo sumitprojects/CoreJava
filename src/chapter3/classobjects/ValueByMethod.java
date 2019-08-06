@@ -8,7 +8,6 @@ class Rectangle {
         length = l;
         width = w;
     }
-
     void calculateArea() {
         System.out.println(length * width);
     }

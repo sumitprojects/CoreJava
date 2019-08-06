@@ -9,7 +9,7 @@ public class SimpleClass {
         System.out.println(s1.id);//accessing member through reference variable
         System.out.println(s1.name);
         System.out.println(s1);
-		System.out.println("class " + new SimpleClass().id);
+        System.out.println("class " + new SimpleClass().id);//inline object
 		Rectangle rectangle = new Rectangle();
 		rectangle.insert(10, 20);
 		rectangle.calculateArea();

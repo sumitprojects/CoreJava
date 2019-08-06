@@ -14,6 +14,7 @@ public class Constructors {
 	}
 	
 	public Constructors (String name) {
+        this.id = 10;
 		this.name = name;
 	}
     
