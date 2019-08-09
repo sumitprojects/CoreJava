@@ -1,10 +1,10 @@
 package chapter3.polymorphism;
 
 /*
- *
+ * Runtime Polymorphism/ Dynamic Bindings
  * Only allowed in Inheritance
  * signature must be same
- * only body can be chanageble
+ * only body can be changeable
  * */
 
 
@@ -40,5 +40,11 @@ public class MethodOverriding {
     for (int i = 0; i < 50; i++) {
       System.out.print("-");
     }
+      System.out.println("-----------------------");
+      System.out.println("upcasting in java");
+      Car car = new Ferrari();
+      car.run();
+      car = new Toyota();
+      car.run();
   }
 }

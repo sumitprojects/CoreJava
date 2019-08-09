@@ -1,0 +1,36 @@
+public class ThreadInterrupt extends Thread {
+  public static void main (String[] args) {
+    ThreadInterrupt t1 = new ThreadInterrupt();
+    ThreadInterrupt t2 = new ThreadInterrupt();
+    t1.start();
+    t2.start();
+  
+    try{
+      Thread.sleep(500);
+    }catch (Exception e){
+      System.out.println(e.getMessage());
+    }
+    t1.interrupt();
+  
+  
+  }
+  
+  public void run () {
+    try {
+      
+      for (int i = 1; i < 6; i++) {
+        
+        //if (i >= 2 && i<4) Thread.currentThread().interrupt();
+       // else
+        if(Thread.currentThread().isInterrupted()){
+          System.out.println("I am interrupted by you.");
+        }else{
+          System.out.println(i);
+        }
+        Thread.sleep(100);
+      }
+    } catch (Exception e) {
+      System.out.println("Exception handled " + e.getMessage());
+    }
+  }
+}

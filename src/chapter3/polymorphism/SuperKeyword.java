@@ -30,8 +30,8 @@ class Employee extends Person {
     }
 
     public void Display() {
-		super.Display();
-		super.id = 100;
+        //super.Display();
+        //super.id = 100;
         System.out.println("\t " + id + " \t\t " + name + " \t\t " + salary);
         System.out.println("----------------------------------------------------------------");
     }

@@ -16,7 +16,6 @@ final class Demo {
 
 
 class Another {
-  
   /*
    * Final method without parameter
    * */
@@ -39,7 +38,7 @@ class Another {
 
 public class FinalKeyword extends Another {
   final static int data;
-  
+
   static {
     data = 100;
   }
@@ -64,7 +63,6 @@ public class FinalKeyword extends Another {
     System.out.println("----------------------------------------------------------------");
     f.disp();
     System.out.println(f.power(10, 5));
-    
     //data =1000;   // compile time error
     
   }

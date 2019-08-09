@@ -6,9 +6,9 @@ public class Covarient {
   public static void main (String[] args) {
     Covarient obj = new Covarient();
     obj.mul(10, 20);
-    System.out.println(obj.a);
+    System.out.println(obj.a + " " + obj.b);
     obj = obj.add(1000, 20);
-    System.out.println(obj.a);
+    System.out.println(obj.a + " " + obj.b);
   }
   
   Covarient add (int a, int b) {

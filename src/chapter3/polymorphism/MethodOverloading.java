@@ -4,7 +4,7 @@ Different ways to overload the method
         There are two ways to overload the method in java
 
         By changing number of arguments
-        By changing the data type
+        By changing the data type of those arguments
 */
 
 public class MethodOverloading {
@@ -32,7 +32,7 @@ public class MethodOverloading {
             System.out.print("-");
         }
         System.out.println();
-        System.out.println("\t\t Method Overloading");
+        System.out.println("\t\t Method Overloading(static binding/ compile-time poly)");
         System.out.println(MethodOverloading.add(11, 11));
         System.out.println(MethodOverloading.add(11, 11, 11));
         System.out.println(MethodOverloading.add(12.3, 12.6));
