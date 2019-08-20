@@ -16,7 +16,7 @@ class Customers extends Account {
       System.out.println("Hello I am down casted");
       c.show();
     } else {
-      System.err.println("You have given Wrong objects.");
+        System.out.println("You have given Wrong objects.");
     }
 //        Customers c = (Customers) a;
 //        System.out.println("Hello I am down casted");
@@ -44,7 +44,7 @@ public class Downcasting {
       /*
        * Account class passed as Customer
        * */
-      new Customers().bal(a);
+        new Customers().bal(c);
 
       /*
        * Account Class passed as User in Customer class

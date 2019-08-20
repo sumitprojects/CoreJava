@@ -1,6 +1,5 @@
 package chapter3.packages;
 
-import java.util.Arrays;
 
 /*
  * Access Modifier	within class	within package	outside package by subclass only	outside package
@@ -15,6 +14,7 @@ public class First {
     
     public static void main (String[] args) {
         First f = new First();
+        f.a = 20;
         f.meth();
         f.meth2();
     }
@@ -27,7 +27,7 @@ public class First {
      * only in the child class from the outside packages.
      */
     protected void meth () {
-        System.out.println("Hello, I am protected in " + Arrays.toString(getClass().getDeclaredMethods()));
+        System.out.println("Hello, I am protected in " + getClass().getSimpleName());//Arrays.toString(getClass().getDeclaredMethods()))
     }
     
     /*

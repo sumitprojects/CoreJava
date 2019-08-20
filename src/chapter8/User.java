@@ -34,18 +34,19 @@ public class User implements Comparable<User> {
     public int compareTo (User user) {
         return name.compareTo(user.name);
     }
-    
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     /**
      * @return Information about a Current User object holding.
      */
-    @Override
-    public String toString () {
-        return "|\t\t\t" +
-                id +
-                "\t\t\t|\t\t\t " + name +
-                "\t\t\t|";
-    }
-    
+
     public int getId () {
         return id;
     }

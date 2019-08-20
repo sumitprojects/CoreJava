@@ -28,13 +28,13 @@ public class StringBuilderFun {
         sb = new StringBuilder();
         System.out.println("Initial capacity : " + sb.capacity());//default 16
         sb.append("Hello");
-        System.out.println("capacity : " + sb.capacity());//now 16
+        System.out.println("capacity : " + sb.capacity() + " size : " + sb.length());//now 16
         sb.append("java is my favourite language");
         System.out.println("new capacity : " + sb.capacity());//now (16*2)+2=34 i.e (oldcapacity*2)+2
         sb.ensureCapacity(10);//now no change
         System.out.println("Ensure cap 10 : " + sb.capacity());//now 34
 
-        sb.ensureCapacity(50);//now (34*2)+2
+        sb.ensureCapacity(150);//now (34*2)+2
         System.out.println("Ensure cap 50 : " + sb.capacity());//now 70
     }
 }

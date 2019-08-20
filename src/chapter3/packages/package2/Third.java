@@ -2,10 +2,14 @@ package chapter3.packages.package2;
 
 import chapter3.packages.First;
 
+class Sample {
+
+}
+
 public class Third extends First {
     public static void main (String[] args) {
         First f = new Third();
-        //f.b = 10;
+        //f.m = 10;
         //upcasting couldnot call the method and var which are declared as protected and private in another packages
         // method is private in First class so can't be used
         Third t = new Third();

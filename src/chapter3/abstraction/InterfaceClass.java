@@ -26,7 +26,7 @@ public class InterfaceClass implements PureAbstract, PureAbstract2 {
     System.out.println(p.method2(10, 10));
 
     PureAbstract2 p2 = new InterfaceClass();
-    //p2.method1();
+      p2.method1();
     System.out.println(p.method2(10, 10));
   }
 

@@ -27,7 +27,7 @@ abstract class Methods {
             return n * power(n, --pow);
         }
     }
-    
+
 }
 
 public class AbstractClass extends Methods {
@@ -36,7 +36,8 @@ public class AbstractClass extends Methods {
         m.meth();
         System.out.println(m.power(10, 5));
     }
-    
+
+
     @Override
     void meth () {
         System.out.println("I am force fully implemented.");

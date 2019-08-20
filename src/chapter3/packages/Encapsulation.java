@@ -21,9 +21,6 @@ public class Encapsulation {
         System.out.println("Parameter Constructor => " + e2.getData());
     }
 
-    /*
-     * Encapsulation using Getters and Setters
-     * */
     public String getData() {
         return data;
     }

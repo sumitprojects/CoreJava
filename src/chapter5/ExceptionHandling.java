@@ -27,7 +27,7 @@ class ExceptionCall {
      * Number format Exception Method
      */
     int data = 0;
-    Integer arraydata[] = new Integer[5];
+    Integer[] arraydata = new Integer[5];
     
     /*
      * ArithmeticException code
@@ -83,8 +83,8 @@ class ExceptionCall {
          * */
         return this.data;
     }
-    
-    void setDataArray (int... arraydata) {
+
+    void setDataArray(int arraydata[]) {
         for (int i = 0; i < arraydata.length; i++) {
             /*
              *Below code will generate the ArrayIndexOut of bound exception,
@@ -101,8 +101,8 @@ class ExceptionCall {
     
     void MulticatchExample () {
         try {
-            int a[] = new int[5];
-            a[5] = 30 / 10;
+            int[] a = new int[5];
+            a[5] = 30 / 20;
         } catch (ArithmeticException e) {
             System.out.println("ArithmeticException is completed");
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -133,7 +133,7 @@ class ExceptionCall {
             System.out.println("-----------------------------------------------------------------------");
             try {
                 System.out.println("ArrayIndexOutofBound Block");
-                int a[] = new int[5];
+                int[] a = new int[5];
                 a[5] = 4;
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println(e);
@@ -151,7 +151,7 @@ class ExceptionCall {
         try {
             try {
                 System.out.println("ArithmeticException Block");
-                int b = 10 / 0;
+                int b = 10 / 20;
             } catch (ArithmeticException e) {
                 System.out.println(e);
             } finally {
@@ -160,7 +160,7 @@ class ExceptionCall {
             System.out.println("-----------------------------------------------------------------------");
             try {
                 System.out.println("ArrayIndexOutofBound Block");
-                int a[] = new int[5];
+                int[] a = new int[5];
                 a[5] = 4;
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println(e);
@@ -185,15 +185,16 @@ class ExceptionCall {
             if (age >= 18) {
                 System.out.println("Eligible");
             } else {
-                throw new ArithmeticException("Not Eligible");
+                throw new AgeValidator("Not Eligible");
             }
-        } catch (ArithmeticException e) {
+        } catch (AgeValidator e) {
             System.out.println("Exception Message: " + e);
         }
     }
-    
-    void ExceptionPropagation1 () {
+
+    void ExceptionPropagation1() throws IOException {
         //without throw it will not call the exception
+        ExceptionPropagation2();
         System.out.println("ExceptionPropagation1 call");
     }
     
@@ -204,10 +205,15 @@ class ExceptionCall {
     
 }
 
+class AgeValidator extends Exception {
+    public AgeValidator(String s) {
+        super(s);
+    }
+}
 
 public class ExceptionHandling {
-    
-    public static void main (String[] args) throws IOException {
+
+    public static void main(String... args) throws IOException {
         ExceptionCall ac = new ExceptionCall();
         int choice = 0;
         System.out.println("-----------------------------------------------------------------------");
@@ -255,7 +261,7 @@ public class ExceptionHandling {
                 System.out.println("-----------------------------------------------------------------------");
                 System.out.println("\t\t ArrayIndexOutofBound Exception");
                 System.out.println("-----------------------------------------------------------------------");
-                int arr[] = {1, 2, 3, 4, 5, 6};
+                int[] arr = {1, 2, 3, 4, 5, 6};
                 System.out.println("ArrayIndexOutofBound method Call :");
                 ac.setDataArray(arr);
                 System.out.println("-----------------------------------------------------------------------");

@@ -44,11 +44,12 @@ public class FileHandlingDemo {
 			File file = new File(path);
 			Scanner scanner = new Scanner(System.in);
 			if (file.canWrite() && file.isFile()) {
-				FileOutputStream outputStream = new FileOutputStream(file, true);
+				FileOutputStream outputStream = new FileOutputStream(file);
+				BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 				System.out.println("Enter the data to write");
 				String data = scanner.nextLine();
-				outputStream.write(data.getBytes());
-				outputStream.close();
+				bufferedOutputStream.write(data.getBytes());
+				bufferedOutputStream.close();
 				System.out.println("Data written Successfully");
 			} else {
 				throw new IOException("You are not permitted to change current File!");
