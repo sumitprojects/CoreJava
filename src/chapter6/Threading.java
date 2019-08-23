@@ -46,6 +46,7 @@ public class Threading extends Thread implements Runnable {
                 System.out.println("------------------------------------------------------------------");
                 t1.start();
                 t.start();
+                t3.start();
                 System.out.println("------------------------------------------------------------------");
                 break;
             case 2:
@@ -59,8 +60,8 @@ public class Threading extends Thread implements Runnable {
                 System.out.println("------------------------------------------------------------------");
                 break;
             case 3:
-              System.out.println("------------------------Joining------------------------------------------");
-              System.out.println("\t\t Method 1(Thread )");
+                System.out.println("------------------------Joining------------------------------------------");
+                System.out.println("\t\t Method 1(Thread )");
                 System.out.println("------------------------------------------------------------------");
                 System.out.println("\t\t Thread 1 (Join) is running");
                 t1.start();
@@ -72,9 +73,9 @@ public class Threading extends Thread implements Runnable {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-              System.out.println("\t\t Thread 2-3 is running");
+                System.out.println("\t\t Thread 2-3 is running");
                 t.start();
-              t3.start();
+                t3.start();
                 System.out.println("------------------------------------------------------------------");
                 break;
             case 4:
@@ -87,7 +88,7 @@ public class Threading extends Thread implements Runnable {
                     /*
                      * Hold the thread for 200ms for continuous execution
                      * */
-                    t1.join(200);
+                    t1.join(3000);
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -126,11 +127,12 @@ public class Threading extends Thread implements Runnable {
                  * */
                 t1.setPriority(1);  //t1.setPriority(MIN_PRIORITY);
                 t.setPriority(5);   //t.setPriority(NORM_PRIORITY);
-              t3.setPriority(10); //t3.setPriority(7);
+                t3.setPriority(10); //t3.setPriority(MAX_PRIORITY);
                 System.out.println("\t\t " + t1.getName() + " is running");
                 t1.start();
                 System.out.println("\t\t " + t.getName() + " is running");
                 t.start();
+
                 System.out.println("\t\t " + t3.getName() + " is running");
                 t3.start();
                 System.out.println("------------------------------------------------------------------");
@@ -143,9 +145,9 @@ public class Threading extends Thread implements Runnable {
                 /*
                  * Adding The Thread to the created Group
                  * */
-              Thread one = new Thread(threadGroup, t1, "First");
+                Thread one = new Thread(threadGroup, t1, "First");
                 Thread two = new Thread(threadGroup, t, "Second");
-              Thread three = new Thread(threadGroup, t3, "Third");
+                Thread three = new Thread(threadGroup, t3, "Third");
                 /*
                  * Thread Name Given Below
                  * */
@@ -161,16 +163,22 @@ public class Threading extends Thread implements Runnable {
                 System.out.println("\t\t " + three.getName() + " is running");
                 three.start();
                 System.out.println("------------------------------------------------------------------");
-              try {
-                two.interrupt();
-              } catch (Exception e) {
-                System.out.println(e);
-              }
-              if (two.isInterrupted()) {
-                System.err.println("------------------------------------------------------------------");
-                System.err.println("I am out of your group");
-                System.err.println("------------------------------------------------------------------");
-              }
+                try {
+                    two.interrupt();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+                try {
+                    three.interrupt();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                if (two.isInterrupted()) {
+                    System.err.println("------------------------------------------------------------------");
+                    System.err.println("I am out of your group");
+                    System.err.println("------------------------------------------------------------------");
+                }
 
                 break;
             default:
@@ -190,22 +198,22 @@ public class Threading extends Thread implements Runnable {
                 /*
                  * For getting current thread information
                  * */
-              if (Thread.currentThread().isInterrupted()) {
-                System.out.println("Thread Name : " + Thread.currentThread().getName() + "\t |" +
-                        "Thread Priority :" + Thread.currentThread().getPriority() + "\t |" +
-                        "Thread Daemon :" + Thread.currentThread().isDaemon() + "\t |" +
-                        "output : i = " + i);
-              } else {
-                System.out.println("Thread Name : " + Thread.currentThread().getName() + "\t |" +
-                        "Thread Priority :" + Thread.currentThread().getPriority() + "\t |" +
-                        "Thread Daemon :" + Thread.currentThread().isDaemon() + "\t |" +
-                        "output : i = " + i);
-              }
+                if (Thread.currentThread().isInterrupted()) {
+                    System.out.println("Thread Name : " + Thread.currentThread().getName() + "\t |" +
+                            "Thread Priority :" + Thread.currentThread().getPriority() + "\t |" +
+                            "Thread Daemon :" + Thread.currentThread().isDaemon() + "\t |" +
+                            "output : i = " + i);
+                } else {
+                    System.out.println("Thread Name : " + Thread.currentThread().getName() + "\t |" +
+                            "Thread Priority :" + Thread.currentThread().getPriority() + "\t |" +
+                            "Thread Daemon :" + Thread.currentThread().isDaemon() + "\t |" +
+                            "output : i = " + i);
+                }
                 System.out.println("------------------------------------------------------------------");
-              /*
-               * It will make the thread into sleep mode for 100ms
-               * */
-              Thread.sleep(100);
+                /*
+                 * It will make the thread into sleep mode for 100ms
+                 * */
+                Thread.sleep(1000);
             }
         } catch (Exception e) {
             System.out.println(e);
