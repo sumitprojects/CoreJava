@@ -64,7 +64,7 @@ class Bill extends inventory {
 		
 		System.out.println(billDisplay(total));
 		
-		System.out.println("\n Inventory after bill generated....\n");
+		System.out.println("\n Inventory after bill generated...\n");
 		// System.out.println(myInventory.toString());
 		
 		myInventory.updateItems(2, 5);
